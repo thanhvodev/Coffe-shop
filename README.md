@@ -1,2 +1,2 @@
-# Coffe-shop
-Online Coffe Shop Website
+# Coffee-shop
+Online Coffee Shop
