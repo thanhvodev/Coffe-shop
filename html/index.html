@@ -1,0 +1,270 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý</title>
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Begin Nav -->
+  <div class="container-fluid">
+    <div class="row nav">
+      <div class="col-9 listNav">
+        <ul>
+          <li><a href="#home" style="height: 60px;"><img src="images/logo.svg" id="logo"></a></li>
+          <li><a class="active" href="#home">Sản phẩm</a></li>
+          <li class="thuchi"><a href="#thuchi">Thu chi</a></li>
+        </ul>
+      </div>
+
+      <div class="col-3 cart">
+        <button type="button" class="btn btn-light cartButton">Đăng xuất <i class="fa fa-sign-out"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Nav -->
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-3 first">
+        <div class="category">
+          <h4>Danh mục sản phẩm</h4>
+          <ul>
+            <li><a class="active" href="#">Sản phẩm hàng đầu</a></li>
+            <li><a href="#">Cà phê</a></li>
+            <li><a href="#">Trà trái cây - trà sữa</a></li>
+            <li><a href="#">Đá xay - Choco - Matcha</a></li>
+            <li><a href="#">Thưởng thức tại nhà</a></li>
+            <li><a href="#">Bánh - Snack</a></li>
+          </ul>
+        </div>
+        <!-- <div class="news" style="width: 100%;">
+          <button class="btn btn-primary" type="button">Thêm sản phẩm</button>
+        </div> -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary news" style="width: 88%;" data-bs-toggle="modal"
+          data-bs-target="#addproductModal">
+          Thêm sản phẩm
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="addproductModal" tabindex="-1" aria-labelledby="addproductModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addproductModalLabel">Thêm sản phẩm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-6">
+                      <img src="images/add-image.png" class="bg-info">
+                      <button type="button" class="btn btn-primary news" style="display: block; margin-left: 50px;">
+                        Thêm ảnh
+                      </button>
+                    </div>
+
+                    <div class="col-6">
+                      <form>
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Tên sản phẩm</label>
+                          <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">Mô tả</label>
+                          <!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
+                          <textarea name="description" id="description" cols="22" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="price" class="form-label">Giá</label>
+                          <input type="text" class="form-control" id="price">
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Sản phẩm hàng đầu</label>
+                        </div>
+                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9 second">
+        <div class="row">
+          <div class="col-6 mainHeader">
+            <h3>Sản phẩm hàng đầu</h3>
+          </div>
+          <div class="col-6 search">
+            <form class="d-flex searchTool">
+              <input class="form-control me-2" type="text" placeholder="Bạn muốn tìm gì?">
+              <button class="btn btn-danger" type="button">Tìm kiếm</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/CaPheSuaDa.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Cà Phê Sữa Đá<br>
+                  <span>45.000đ</span>
+                </p>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modproductModal"
+                  onclick="putOldData()">
+                  Chỉnh sửa
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="modproductModal" tabindex="-1" aria-labelledby="modproductModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modproductModalLabel">Chỉnh sửa thông tin sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-6">
+                              <img src="images/CaPheSuaDa.jpg" class="bg-info img-fluid">
+                              <button type="button" class="btn btn-primary news"
+                                style="display: block; margin-left: 50px;">
+                                Đổi ảnh
+                              </button>
+                            </div>
+
+                            <div class="col-6">
+                              <form>
+                                <div class="mb-3">
+                                  <label for="name" class="form-label">Tên sản phẩm</label>
+                                  <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="description" class="form-label">Mô tả</label>
+                                  <!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
+                                  <textarea name="description" id="description" cols="22" rows="5"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="price" class="form-label">Giá</label>
+                                  <input type="text" class="form-control product-price" id="price">
+                                </div>
+                                <div class="mb-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="top-product">
+                                  <label class="form-check-label" for="top-product">Sản phẩm hàng đầu</label>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/MatchaDaXay.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Matcha Đá Xay<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/ChocolateDaXay.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Chocolate Đá Xay<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/TraDaoCamSa.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Trà Đào Cam Sả - Đá<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/MochiKemXoai.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Mochi Kem Xoài<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/ChaBongPhoMai.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Chà Bông Phô Mai<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="center">
+          <div class="pagination justify-content-end">
+            <a href="#">Trang trước</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Trang sau</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Footer Infomation</p>
+  </footer>
+  <script src="../js/listener.js"></script>
+</body>
+
+
+</html>
