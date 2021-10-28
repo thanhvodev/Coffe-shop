@@ -17,7 +17,7 @@
     <div class="row nav">
       <div class="col-9 listNav">
         <ul>
-          <li><a href="#home" style="height: 60px;"><img src="images/logo.svg" id="logo"></a></li>
+          <li><a href="#home" style="height: 60px;"><img src="../images/logo.svg" id="logo"></a></li>
           <li><a class="active" href="#home">Sản phẩm</a></li>
           <li class="thuchi"><a href="#thuchi">Thu chi</a></li>
         </ul>
@@ -65,10 +65,17 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-6">
-                      <img src="images/add-image.png" class="bg-info">
+                      <img src="../images/add-image.png" class="bg-info">
                       <button type="button" class="btn btn-primary news" style="display: block; margin-left: 50px;">
                         Thêm ảnh
                       </button>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Cà phê</option>
+                        <option value="1">Trà trái cây - trà sữa</option>
+                        <option value="2">Đá xoay - choco - Matcha</option>
+                        <option value="3">Thưởng thức tại nhà</option>
+                        <option value="4">Bánh - Snack</option>
+                      </select>
                     </div>
 
                     <div class="col-6">
@@ -120,7 +127,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/CaPheSuaDa.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/CaPheSuaDa.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Cà Phê Sữa Đá<br>
                   <span>45.000đ</span>
@@ -142,30 +149,38 @@
                         <div class="container-fluid">
                           <div class="row">
                             <div class="col-6">
-                              <img src="images/CaPheSuaDa.jpg" class="bg-info img-fluid">
+                              <img src="../images/CaPheSuaDa.jpg" class="bg-info img-fluid">
                               <button type="button" class="btn btn-primary news"
                                 style="display: block; margin-left: 50px;">
                                 Đổi ảnh
                               </button>
+                              <select class="form-select" aria-label="Default select example">
+                                <option selected>Cà phê</option>
+                                <option value="1">Trà trái cây - trà sữa</option>
+                                <option value="2">Đá xoay - choco - Matcha</option>
+                                <option value="3">Thưởng thức tại nhà</option>
+                                <option value="4">Bánh - Snack</option>
+                              </select>
                             </div>
 
                             <div class="col-6">
                               <form>
                                 <div class="mb-3">
                                   <label for="name" class="form-label">Tên sản phẩm</label>
-                                  <input type="text" class="form-control" id="name">
+                                  <input type="text" class="form-control" id="name" value="Cà Phê Sữa Đá">
                                 </div>
                                 <div class="mb-3">
                                   <label for="description" class="form-label">Mô tả</label>
                                   <!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
-                                  <textarea name="description" id="description" cols="22" rows="5"></textarea>
+                                  <textarea name="description" id="description" cols="22"
+                                    rows="5">Cà phê được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.</textarea>
                                 </div>
                                 <div class="mb-3">
                                   <label for="price" class="form-label">Giá</label>
-                                  <input type="text" class="form-control product-price" id="price">
+                                  <input type="text" class="form-control product-price" id="price" value="45.000đ">
                                 </div>
                                 <div class="mb-3 form-check">
-                                  <input type="checkbox" class="form-check-input" id="top-product">
+                                  <input type="checkbox" class="form-check-input" id="top-product" checked>
                                   <label class="form-check-label" for="top-product">Sản phẩm hàng đầu</label>
                                 </div>
                                 <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
@@ -187,7 +202,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/MatchaDaXay.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/MatchaDaXay.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Matcha Đá Xay<br>
                   45.000đ
@@ -199,7 +214,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/ChocolateDaXay.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/ChocolateDaXay.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Chocolate Đá Xay<br>
                   45.000đ
@@ -211,7 +226,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/TraDaoCamSa.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/TraDaoCamSa.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Trà Đào Cam Sả - Đá<br>
                   45.000đ
@@ -223,7 +238,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/MochiKemXoai.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/MochiKemXoai.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Mochi Kem Xoài<br>
                   45.000đ
@@ -235,7 +250,7 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="images/ChaBongPhoMai.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/ChaBongPhoMai.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
                   Chà Bông Phô Mai<br>
                   45.000đ
@@ -259,7 +274,6 @@
 
     </div>
   </div>
-
   <footer>
     <p>Footer Infomation</p>
   </footer>
