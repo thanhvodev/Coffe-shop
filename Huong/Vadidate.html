@@ -7,14 +7,20 @@
     <title>Sokoshop</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
     <link rel = "stylesheet" href="General.css">
+    <link rel = "stylesheet" href="../Tan_Toan/cartStyle.css">
+    <link rel = "stylesheet" href="../Tan_Toan/style.css">
 </head>
 
 <body>
-    <!-- logoshop -->
-    <div id="header">
-        <img id="logoimg" src="image/logo.svg" alt="logo shop">
-        <p id="logotext"><b>Sokoshop</b></p>
+
+    <!-- Begin Nav -->
+    <div class="row nav navHome">
+        <div class="col-md-3 col-sm-3 col-12 logo">
+          <img id="logo" src="image/logo.svg" alt="Logo"> Sokoshop
+        </div>
     </div>
+
+      <!-- End Nav -->
 
     <!-- progressbar -->
     <div id="progressbar">
@@ -45,12 +51,13 @@
     <!-- navigationbar -->
     <div id="navigationbar">
         <div id="leftbtn">
-            <button>Quay lại</button>
+            <button onclick="window.location.href='../Tan_Toan/index.html'">Quay lại</button>
         </div>
         <div id="rightbtn">
             <button onclick="window.location.href='Addressinfo.html'">Tiếp theo</button>
         </div>
     </div>
+    
 </body>
 <footer></footer>
 </html>
