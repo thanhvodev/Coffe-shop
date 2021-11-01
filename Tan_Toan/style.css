@@ -22,10 +22,6 @@
   height: 60px;
 }
 
-.content {
-  background-color: white;
-}
-
 .logo, .listNav, .cart {
   margin: 0;
   padding: 0;
@@ -54,6 +50,10 @@
 
 .listNav li a:hover {
   background-color: #EAAEAE;
+}
+
+.content {
+  background-color: white;
 }
 
 .cartButton {
@@ -102,9 +102,9 @@
 .card {
   margin-bottom: 20px;
   text-align: center;
-  border: ;
   transition: all 0.5s;
 }
+
 .card:hover {
   background-color: #EEEEEE;
 }
