@@ -47,6 +47,6 @@ for(var i = 0, len = form.length; i < len; i++){
     title_click[i].value = form[i];
     form[i].value = 0;
 }
-Drawline(1000, 500);
+Drawline(950, 500);
 title_click[0].addEventListener("click", function(){click_title(title_click[0],title_click[1]);});
 title_click[1].addEventListener("click", function(){click_title(title_click[1],title_click[0]);});
