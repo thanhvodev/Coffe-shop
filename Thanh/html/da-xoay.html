@@ -38,9 +38,9 @@
           <h4>Danh mục sản phẩm</h4>
           <ul>
             <li><a href="top-product.html">Sản phẩm hàng đầu</a></li>
-            <li><a class="active" href="#">Cà phê</a></li>
+            <li><a href="./ca-phe.html">Cà phê</a></li>
             <li><a href="#">Trà trái cây - trà sữa</a></li>
-            <li><a href="./da-xoay.html">Đá xay - Choco - Matcha</a></li>
+            <li><a class="active" href="#">Đá xay - Choco - Matcha</a></li>
             <li><a href="#">Thưởng thức tại nhà</a></li>
           </ul>
         </div>
@@ -127,97 +127,46 @@
           <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
             <div class="card">
               <div class="card-body">
-                <img class="imageCard" src="../images/CaPheSuaDa.jpg" alt="Card image" style="width:100%">
+                <img class="imageCard" src="../images/MatchaDaXay.jpg" alt="Card image" style="width:100%">
                 <p class="card-text">
-                  Cà Phê Sữa Đá<br>
-                  <span>45.000đ</span>
+                  Matcha Đá Xay<br>
+                  45.000đ
                 </p>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modproductModal"
-                  onclick="putOldData()">
-                  Chỉnh sửa
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="modproductModal" tabindex="-1" aria-labelledby="modproductModalLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="modproductModalLabel">Chỉnh sửa thông tin sản phẩm</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class="col-6">
-                              <img src="../images/CaPheSuaDa.jpg" class="bg-info img-fluid">
-                              <button type="button" class="btn btn-primary news"
-                                style="display: block; margin-left: 50px;">
-                                Đổi ảnh
-                              </button>
-                              <select class="form-select" aria-label="Default select example">
-                                <option selected>Cà phê</option>
-                                <option value="1">Trà trái cây - trà sữa</option>
-                                <option value="2">Đá xoay - choco - Matcha</option>
-                                <option value="3">Thưởng thức tại nhà</option>
-                                <option value="4">Bánh - Snack</option>
-                              </select>
-                            </div>
-
-                            <div class="col-6">
-                              <form>
-                                <div class="mb-3">
-                                  <label for="name" class="form-label">Tên sản phẩm</label>
-                                  <input type="text" class="form-control" id="name" value="Cà Phê Sữa Đá">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="description" class="form-label">Mô tả</label>
-                                  <!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
-                                  <textarea name="description" id="description" cols="22"
-                                    rows="5">Cà phê được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.</textarea>
-                                </div>
-                                <div class="mb-3">
-                                  <label for="price" class="form-label">Giá</label>
-                                  <input type="text" class="form-control product-price" id="price" value="45.000đ">
-                                </div>
-                                <div class="mb-3 form-check">
-                                  <input type="checkbox" class="form-check-input" id="top-product" checked>
-                                  <label class="form-check-label" for="top-product">Sản phẩm hàng đầu</label>
-                                </div>
-                                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
               </div>
+            </div>
+
+
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="../images/ChocolateDaXay.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  Chocolate Đá Xoay<br>
+                  45.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chỉnh sửa</button>
+              </div>
+            </div>
+          </div>
+          <div class="center">
+            <div class="pagination justify-content-end">
+              <a href="#">Trang trước</a>
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">Trang sau</a>
             </div>
           </div>
         </div>
 
-        <div class="center">
-          <div class="pagination justify-content-end">
-            <a href="#">Trang trước</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">Trang sau</a>
-          </div>
-        </div>
       </div>
-
     </div>
-  </div>
-  <footer>
-    <p>Footer Infomation</p>
-  </footer>
-  <script src="../js/listener.js"></script>
+    <footer>
+      <p>Footer Infomation</p>
+    </footer>
+    <script src="../js/listener.js"></script>
 </body>
 
 

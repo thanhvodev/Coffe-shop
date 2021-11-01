@@ -22,6 +22,11 @@
   height: 60px;
 }
 
+.navHome {
+  background-color: #FFE4E1;
+  height: 60px;
+}
+
 .content {
   background-color: white;
 }
