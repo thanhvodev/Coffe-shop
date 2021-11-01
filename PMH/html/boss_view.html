@@ -19,14 +19,23 @@
     </head>
     <body>
             <!-- nav -->
-            <div class = "nav">
-                <div class="logo"><a href="#home" style="height: 60px;"><img src="../imgs/logo.svg" id="logo"></a></div>
-                <div class="function">
-                    <div class="revenue"><p>Doanh số</p></div>
-                    <div class="menu"><p>Thực đơn</p></div>
-                    <div class="signout"><p><i class="fas fa-sign-out-alt"></i> Signout</p></div>
+            <div class="row nav navHome">
+                <div class="col-md-3 col-sm-3 col-12 logo">
+                  <img id="logo" src="../imgs/logo.svg" alt="Logo"> Sokoshop
+                </div>
+          
+                <div class="col-md-6 col-sm-6 col-12 listNav">
+                  <ul>
+                    <li><a href="../..//Thanh/html/top-product.html"">Menu</a></li>
+                    <li><a href="#" class="active">Doanh thu</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-3 cart">
+                  <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal" data-bs-target="#myCart">Đăng xuất <i class="fa fa-sign-out"></i></i></button>
                 </div>
             </div>
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3 mt-3">
@@ -133,7 +142,11 @@
                     </div>
                 </div>
             </div>
-<!--ch làm JS cho các nút và media-->
+
+
+            <footer>
+                <p>Footer Infomation</p>
+            </footer>
         <script src="../js/index.js"></script> 
     </body>
 </html>
