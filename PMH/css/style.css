@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*-------------------------------------------Navagation-------------------------------------------*/
+.nav{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    background-color: #800000;
+    flex-wrap: wrap;
+    font-size: large;
+    color: #FFFFFF;
+    justify-content: space-between;
+    align-content: center;
+}
+.nav .logo{
+    text-indent: 10px;
+}
+.nav .function{
+    display: flex;
+    height: 100%;
+    width: 70%;
+    text-align: center;
+    color: white;
+    text-align: center;
+    justify-content: end;
+    margin-right: 20px;
+}
+.nav .function div{
+    flex: 20%;
+    max-width: 130px;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.nav .function div:hover{ 
+    background-color: #A52A2A;
+}
+.nav .function p{
+    margin-top: 10px;
+}
+.nav .function .signout{
+    flex: 20%;
+    text-align: right;
+    cursor: pointer;
+}
+.nav .function .signout:hover{
+    font-size: larger;
+    background-color: #800000;
+}
+
+.col-3 > div >:nth-child(2){
+    margin-top: 30px;
+}
+.col-3 > div{
+    display: flex;
+    flex-flow: column wrap;
+}
+.col-3 div h4{
+    text-align: center;
+    background-color: #800000;
+    color: white;
+}
+.col-3 form{
+    background-color: #f1f1f1;
+    margin: 0 auto;
+}
+.col-3 form input{
+    width: 200px;
+}
+textarea{
+    width: 100%;
+    max-width: 100%;
+}
+.col-3 form button{
+    width: 100px;
+}
+#myCanvas{
+    width: 100%;
+    max-width: 100%;
+}
+.d-flex > div:nth-child(2){
+    justify-self: end;
+}
+
+@media screen and (max-width: 1225px) {
+    .col .d-flex{
+        flex-flow: column wrap;
+    } 
+}
+@media screen and (max-width: 1000px) {
+    .col-3 h4{
+        font-size: calc(1em + 0.3vh);
+    }
+    
+}
+@media screen and (max-width: 950px){
+    .container-fluid > .row{
+        flex-flow: column-reverse wrap;
+    }
+    .container-fluid > .row .col-3{
+        width: 100%;
+    }
+    .container-fluid > .row .col-9{
+        width: 100%;
+    }
+    .col-3 > .row{
+        flex-flow: row;
+    }
+    .col-3 > .row > .col{
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .col-3 > .row > .col form{
+        width: 100%;
+        display: none;
+    }
+    .col-3 > .row > .col h4{
+        cursor: pointer;
+    }
+    .col-3 > div >:nth-child(2){
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 415px){
+    .col-3 div h4{
+        font-size: calc(1em);
+    }
+}
+@media screen and (max-width: 380px) {
+    .nav{
+        font-size: medium;
+    }
+    .nav .function .signout:hover{
+        font-size: 1em;
+        background-color: #A52A2A;
+    }
+}
