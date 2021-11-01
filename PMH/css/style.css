@@ -4,51 +4,68 @@ body{
     box-sizing: border-box;
 }
 /*-------------------------------------------Navagation-------------------------------------------*/
-.nav{
-    height: 60px;
-    width: 100%;
-    display: flex;
-    background-color: #800000;
-    flex-wrap: wrap;
-    font-size: large;
-    color: #FFFFFF;
-    justify-content: space-between;
-    align-content: center;
+.logo {
+margin: 0px 10px;
+padding: 10px 30px;
+font-size: 1.2em;
+color: black;
+font-weight: bold;
 }
-.nav .logo{
-    text-indent: 10px;
+
+#logo {
+height: 40px;
+margin: 10px 10px 10px 30px;
 }
-.nav .function{
-    display: flex;
-    height: 100%;
-    width: 70%;
-    text-align: center;
-    color: white;
-    text-align: center;
-    justify-content: end;
-    margin-right: 20px;
+
+.navHome {
+background-color: #FFE4E1;
+height: 60px;
 }
-.nav .function div{
-    flex: 20%;
-    max-width: 130px;
-    height: 100%;
-    cursor: pointer;
-    border-radius: 3px;
+
+.content {
+background-color: white;
 }
-.nav .function div:hover{ 
-    background-color: #A52A2A;
+
+.logo, .listNav, .cart {
+margin: 0;
+padding: 0;
 }
-.nav .function p{
-    margin-top: 10px;
+
+.listNav ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
 }
-.nav .function .signout{
-    flex: 20%;
-    text-align: right;
-    cursor: pointer;
+
+.listNav li {
+float: left;
 }
-.nav .function .signout:hover{
-    font-size: larger;
-    background-color: #800000;
+
+.listNav li a {
+display: block;
+color: black;
+font-size: 1.2em;
+text-align: center;
+line-height: 20px;
+padding: 20px;
+text-decoration: none;
+}
+
+.listNav li a:hover {
+background-color: #EAAEAE;
+}
+
+.cartButton {
+float: right;
+margin: 10px 20px;
+}
+
+.cartButton:hover {
+background-color: #EEEEEE;
+}
+.active{
+    background-color: #EAAEAE;
 }
 
 .col-3 > div >:nth-child(2){
@@ -60,8 +77,7 @@ body{
 }
 .col-3 div h4{
     text-align: center;
-    background-color: #800000;
-    color: white;
+    background-color: #EAAEAE;
 }
 .col-3 form{
     background-color: #f1f1f1;
@@ -83,6 +99,22 @@ textarea{
 }
 .d-flex > div:nth-child(2){
     justify-self: end;
+}
+
+
+footer {
+padding: 15px;
+color: black;
+text-align: center;
+background-color: #FFE4E1;
+}
+
+footer a {
+text-decoration: none;
+}
+
+footer a:hover {
+text-decoration: underline;
 }
 
 @media screen and (max-width: 1225px) {
@@ -135,6 +167,6 @@ textarea{
     }
     .nav .function .signout:hover{
         font-size: 1em;
-        background-color: #A52A2A;
+        background-color: #EAAEAE;
     }
 }
