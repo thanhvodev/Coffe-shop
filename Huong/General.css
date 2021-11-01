@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial';
+}
+
+#header {
+  background-color: #14d47b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 1.5%;
+  padding-top: 2%;
+  padding-bottom: 1.5%;
+}
+
+#header #logoimg {
+  height: 17px;
+}
+
+#header #logotext {
+  color: black;
+  text-align: center;
+}
+
+#progressbar {
+  padding-top: 3%;
+  padding-left: 20%;
+  height: 10%;
+}
+
+#progressbar #progressname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#progressbar #progressname #text2 {
+  -ms-flex-preferred-size: 48%;
+      flex-basis: 48%;
+  text-align: center;
+}
+
+#progressbar #progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#progressbar #progress .completecircle {
+  width: 30px;
+  height: 30px;
+  border: solid;
+  border-color: #0f805e;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+  background-color: #14d47b;
+  color: black;
+  font-size: 19pt;
+  text-align: center;
+}
+
+#progressbar #progress .incompletecircle {
+  width: 30px;
+  height: 30px;
+  border: solid;
+  border-color: #0f805e;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+  color: black;
+  font-size: 19pt;
+  text-align: center;
+}
+
+#progressbar #progress .incompleterectangle {
+  width: 300px;
+  height: 5px;
+  border-style: solid;
+  border-color: #0f805e;
+}
+
+#progressbar #progress .completerectangle {
+  width: 300px;
+  height: 5px;
+  border-style: solid;
+  border-color: #0f805e;
+  background-color: #14d47b;
+}
+
+button {
+  height: 50px;
+  width: 140px;
+  border-color: #0f805e;
+  background-color: #14d47b;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+}
+
+#billinfo {
+  height: 500px;
+}
+
+#addressinfo {
+  padding-left: 30%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+#navigationbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 20%;
+  padding-bottom: 2%;
+}
+
+#navigationbar #leftbtn {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+#navigationbar #rightbtn {
+  padding-right: 20%;
+}
+
+#content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 5%;
+  padding-left: 13%;
+  padding-bottom: 10%;
+}
+
+#content #information {
+  width: 40%;
+  padding-left: 5%;
+}
+
+#content #typepayment {
+  width: 50%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td {
+  border: 1px solid #0f805e;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  border: 1px solid #0f805e;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #14d47b;
+}
+
+footer {
+  background-color: #14d47b;
+  padding: 1.5%;
+}
+/*# sourceMappingURL=General.css.map */

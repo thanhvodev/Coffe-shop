@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sokoshop</title>
+    <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
+    <link rel = "stylesheet" href="General.css">
+    <script src="Checkout.js"></script>
+</head>
+
+<body>
+    <!-- logoshop -->
+    <div id="header">
+        <img id="logoimg" src="image/logo.svg" alt="logo shop">
+        <p id="logotext"><b>Sokoshop</b></p>
+    </div>
+
+    <!-- progressbar -->
+    <div id="progressbar">
+        <div id="progressname">
+            <div>
+                <p>Xác nhận đơn hàng</p>
+            </div>
+            <div id="text2">
+                <p>Thông tin giao hàng</p>
+            </div>
+            <div>
+                <p>Thanh toán, đặt mua</p>
+            </div>
+        </div>
+        <div id="progress">
+            <div class="completecircle">1</div>
+            <div class="completerectangle"></div>
+            <div class="completecircle">2</div>
+            <div class="completerectangle"></div>
+            <div class="completecircle">3</div>
+        </div>
+    </div>
+    <!-- content -->
+    <div id="content">
+        <div id="typepayment">
+            <label><b>Vui lòng chọn một trong hai hình thức thanh toán sau đây: </b></label><br><br>
+            &emsp;&emsp;&emsp;<input type="radio" id="bycash" name="payment" value="bycash" onclick="checkbycash();">
+            <label for="bycash">Thanh toán bằng tiền mặt khi nhận hàng</label><br><br>
+            &emsp;&emsp;&emsp;<input type="radio" id="byATMcard" name="payment" value="byATMcard" onclick="checkbyATMcard();">
+            <label for="byATMcard">Thanh toán bằng thẻ ngân hàng</label><br><br>
+            <!-- appear if byATMcard is checked -->
+            <div id="extension">
+                <p id="guide"></p>
+                <div id="uploadimg"></div>
+            </div>
+        </div>
+        <div id="information">
+            <table>
+                <tr>
+                    <th>Thông tin giao hàng</th>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Họ tên khách hàng</b><br><br>
+                        <p>Số điện thoại: </p><br>
+                        <p>Địa chỉ: </p>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br>
+            <p><b>Tổng tiền cần thanh toán:</b></p>
+        </div>
+    </div>
+
+    <!-- navigationbar -->
+    <div id="navigationbar">
+        <div id="leftbtn">
+            <button onclick="window.location.href='Addressinfo.html'">Quay lại</button>
+        </div>
+        <div id="rightbtn">
+            <button onclick="succeeded()">Đặt mua</button>
+        </div>
+    </div>
+</body>
+<footer></footer>
+</html>
