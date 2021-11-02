@@ -4,6 +4,27 @@
   font-family: 'Arial';
 }
 
+#header {
+  background-color: #FFE4E1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 1.5%;
+  padding-top: 2%;
+  padding-bottom: 1.5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header #logoimg {
+  height: 40px;
+}
+
+#header #logotext {
+  color: black;
+  font-size: 14pt;
+}
 
 #progressbar {
   padding-top: 3%;
@@ -36,12 +57,12 @@
   width: 30px;
   height: 30px;
   border: solid;
-  border-color: #c746c0;
+  border-color: #EAAEAE;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
   border-top-right-radius: 100%;
   border-top-left-radius: 100%;
-  background-color: #EAAEAE;
+  background-color: #FFE4E1;
   color: black;
   font-size: 19pt;
   text-align: center;
@@ -51,7 +72,7 @@
   width: 30px;
   height: 30px;
   border: solid;
-  border-color: #c746c0;
+  border-color: #EAAEAE;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
   border-top-right-radius: 100%;
@@ -65,22 +86,22 @@
   width: 300px;
   height: 5px;
   border-style: solid;
-  border-color: #c746c0;
+  border-color: #EAAEAE;
 }
 
 #progressbar #progress .completerectangle {
   width: 300px;
   height: 5px;
   border-style: solid;
-  border-color: #c746c0;
-  background-color: #EAAEAE;
+  border-color: #EAAEAE;
+  background-color: #FFE4E1;
 }
 
-button {
+.footer-nav-btn {
   height: 50px;
   width: 140px;
-  border-color: #c746c0;
-  background-color: #EAAEAE;
+  border-color: #EAAEAE;
+  background-color: #FFE4E1;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -92,6 +113,17 @@ button {
   border-bottom-right-radius: 100%;
   border-top-right-radius: 100%;
   border-top-left-radius: 100%;
+}
+
+#backhome {
+  padding-left: 75%;
+}
+
+#home {
+  border-color: #EAAEAE;
+  height: 30px;
+  width: 130px;
+  font-size: 14px;
 }
 
 #billinfo {
@@ -146,22 +178,22 @@ table {
 }
 
 td {
-  border: 1px solid #c746c0;
+  border: 1px solid #EAAEAE;
   text-align: left;
   padding: 8px;
 }
 
 th {
-  border: 1px solid #c746c0;
+  border: 1px solid #EAAEAE;
   padding: 8px;
 }
 
 tr:nth-child(odd) {
-  background-color: #EAAEAE;
+  background-color: #FFE4E1;
 }
 
 footer {
-  background-color: #EAAEAE;
+  background-color: #FFE4E1;
   padding: 1.5%;
 }
-/*# sourceMappingURL=General.css.map */
+/*# sourceMappingURL=Checkout-General.css.map */
