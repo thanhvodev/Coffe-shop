@@ -192,9 +192,31 @@ tr:nth-child(odd) {
   background-color: #FFE4E1;
 }
 
+
+.logoFooter {
+  padding: 10px 30px;
+  font-size: 1.2em;
+  color: black;
+  font-weight: bold;
+}
+
+footer p {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
 footer {
-  background-color: #FFE4E1;
-  padding: 1.5%;
+  padding: 15px;
+  color: black;
   text-align: center;
+  background-color: #FFE4E1;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=Checkout-General.css.map */

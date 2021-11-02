@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanh toán</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
-    <link rel = "stylesheet" href="Checkout-General.css">
+    <link rel="stylesheet" href="Checkout-General.css">
     <script src="Checkout.js"></script>
 </head>
 
@@ -46,7 +47,8 @@
             <label><b>Vui lòng chọn một trong hai hình thức thanh toán sau đây: </b></label><br><br>
             &emsp;&emsp;&emsp;<input type="radio" id="bycash" name="payment" value="bycash" onclick="checkbycash();">
             <label for="bycash">Thanh toán bằng tiền mặt khi nhận hàng</label><br><br>
-            &emsp;&emsp;&emsp;<input type="radio" id="byATMcard" name="payment" value="byATMcard" onclick="checkbyATMcard();">
+            &emsp;&emsp;&emsp;<input type="radio" id="byATMcard" name="payment" value="byATMcard"
+                onclick="checkbyATMcard();">
             <label for="byATMcard">Thanh toán bằng thẻ ngân hàng</label><br><br>
             <!-- appear if byATMcard is checked -->
             <div id="extension">
@@ -82,5 +84,11 @@
         </div>
     </div>
 </body>
-<footer>Copyright 2021 by Sokoshop. All Rights Reserved.</footer>
+<footer>
+    <div class="logoFooter">
+        <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
+        <img id="logo" src="./image/logo.svg" alt="Logo"> Sokoshop
+    </div>
+</footer>
+
 </html>
