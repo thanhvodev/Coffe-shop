@@ -52,6 +52,10 @@
   background-color: #EAAEAE;
 }
 
+.listNav .active {
+  background-color: #EAAEAE;
+}
+
 .content {
   background-color: white;
 }
@@ -99,7 +103,16 @@
   text-decoration: none;
 }
 
-.card {
+.category i, .news i {
+  color: white;
+  vertical-align: bottom;
+}
+
+.second i {
+  vertical-align: bottom;
+}
+
+.second .card {
   margin-bottom: 20px;
   text-align: center;
   transition: all 0.5s;
@@ -109,14 +122,24 @@
   background-color: #EEEEEE;
 }
 
-.card-text {
+.first .card {
+  margin-top: 10px;
+}
+
+.first .card-text p {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.first button {
+  float: right;
+}
+
+.second .card-text {
   font-size: 1.2em;
   margin-top: 10px;
 }
 
-.news {
-  background-color: #EEEEEE;
-}
 
 .category h4, .news h4 {
   font-size: 1.2em;
@@ -133,14 +156,11 @@
 
 .searchTool {
   margin: 20px 10px;
+  float: right;
 }
 
 .searchTool input {
-  width: 350px;
-}
-
-.searchTool button {
-  width: 120px;
+  width: 300px;
 }
 
 .plus, .minus {
@@ -214,7 +234,6 @@
   margin-top: 20px;
   border-bottom: none;
   color: black;
-  padding:
 }
 
 .nav-item {
