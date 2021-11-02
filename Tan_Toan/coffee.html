@@ -1,0 +1,434 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="cartStyle.css">
+    
+  </head>
+  <body>
+    <!-- Begin Nav -->
+    <div class="row nav navHome">
+      <div class="col-md-3 col-sm-3 col-12 logo">
+        <img id="logo" src="images/logo.svg" alt="Logo"> Sokoshop
+      </div>
+
+      <div class="col-md-6 col-sm-6 col-12 listNav">
+        <ul>
+          <li><a class="active" href="#shop">Cửa hàng</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#follow">Theo dõi</a></li>
+          <li><a href="../Thanh/html/login.html">Quản lý</a></li>
+        </ul>
+      </div>
+
+      <div class="col-3 cart">
+        <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal" data-bs-target="#myCart">Giỏ hàng <i class="fa fa-cart-plus cart-icon"></i></button>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <div class="row">
+      <img id="largeImage" src="images/caphe.jpg" alt="Large image" style="width:100%">
+    </div>
+	
+    <div class="row content">
+      <div class="col-md-3 col-sm-4 col-12 first">
+<div class="category">
+        <h4><i class="material-icons">format_list_bulleted</i> Danh mục sản phẩm</h4>
+        <ul>
+          <li><a href="top-products.html">Sản phẩm hàng đầu</a></li>
+          <li><a class="active" href="#coffee">Cà phê</a></li>
+          <li><a href="#">Trà trái cây - trà sữa</a></li>
+          <li><a href="#">Đá xay - Choco - Matcha</a></li>
+          <li><a href="#">Thưởng thức tại nhà</a></li>
+        </ul>
+</div>
+<div class="news">
+        <h4><i class="fa fa-newspaper-o"></i> Tin tức</h4>
+
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/news1.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">VUI CÓ BẠN - TƯƠI TRẺ CÓ ĐÔI</span><br>
+                  Ngày 15/11/2021, Sokoshop chính thức ra mắt phiên bản App mới với mong muốn tối ưu trải nghiệm
+                </p>
+                <button type="button" class="btn btn-danger">Đọc tiếp</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/news2.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">GU ĐẬM ĐÀ - DEAL ĐẬM CHẤT CHO NGÀY MỚI NĂNG LƯỢNG</span><br>
+                  Ngày 15/11/2021, Sokoshop chính thức ra mắt phiên bản App mới với mong muốn tối ưu trải nghiệm
+                </p>
+                <button type="button" class="btn btn-danger">Đọc tiếp</button>
+              </div>
+            </div>
+
+</div>
+      </div>
+      <div class="col-md-9 col-sm-8 col-12 second" id="top-products">
+<div class="row">
+        <div class="col-6 mainHeader">
+          <h3>CÀ PHÊ</h3>
+        </div>
+        <div class="col-6 search">
+      <form class="d-flex searchTool">
+        <input class="form-control me-2" type="text" placeholder="Bạn muốn tìm gì?">
+        <button class="btn btn-danger" type="button"><i class="material-icons">search</i></button>
+      </form>          
+        </div>
+</div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/CaPheDenDa.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Cà Phê Đen Đá</span><br>
+                  32.000đ
+                </p>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myDetail">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/CaPheSuaDa.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Cà Phê Sữa Đá</span><br>
+                  32.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/CaramelMacchiatoDa.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Caramel Macchiato Đá</span><br>
+                  50.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/LatteNong.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Latte Nóng</span><br>
+                  50.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/AmericanoNong.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Americano Nóng</span><br>
+                  40.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
+            <div class="card">
+              <div class="card-body">
+                <img class="imageCard" src="images/CappuccinoNong.jpg" alt="Card image" style="width:100%">
+                <p class="card-text">
+                  <span style="font-weight:bold;">Cappuccino Nóng</span><br>
+                  55.000đ
+                </p>
+                <button type="button" class="btn btn-danger">Chi tiết</button>
+              </div>
+            </div>
+          </div>
+        </div>
+			
+        <div class="center">
+<div class="pagination justify-content-end">
+  <a href="#">Trang trước</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">Trang sau</a>
+</div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="logo">
+        <img id="logo" src="images/logo.svg" alt="Logo"> Sokoshop
+      </div>
+    </footer>
+
+<!-- The Modal Detail -->
+<div class="modal fade" id="myDetail">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-5 modalCol1">
+            <img class="modalImage" src="images/LatteNong.jpg" alt="Ảnh Latte Nóng" style="width:100%">
+          </div>
+
+          <div class="col-7 modalCol2">
+            <h4>Latte Nóng</h4>
+            <div class="clearfix">
+              <span class="float-start" style="font-size:1.2em">50.000đ</span>
+              <span class="float-end">
+                <div class="buttons_added">
+                  <input class="minus is-form" type="button" value="-">
+                  <input aria-label="quantity" class="input-qty" max="30" min="0" name="" type="number" value="">
+                  <input class="plus is-form" type="button" value="+">
+                </div>
+              </span>
+            </div>
+            <input class="form-control me-2 note" type="text" placeholder="Ghi chú thêm cho món này">
+            <h5 class="toppingHeader">Topping <span style="font-weight:normal;">(Tùy chọn)</span></h5>
+            <div class="topping">
+              <div class="clearfix">
+                <span class="float-start" style="font-size:1.2em"><h6>Espresso <span style="font-weight:normal;">(1 shot)</span></h6></span>
+                <span class="float-end">
+                  <div class="buttons_added">
+                    <input class="minus is-form" type="button" value="-">
+                    <input aria-label="quantity" class="input-qty" max="30" min="0" name="" type="number" value="">
+                    <input class="plus is-form" type="button" value="+">
+                  </div>
+                </span>
+              </div>
+              <p class="toppingPrice">+ 10.000đ</p>         
+            </div>
+            <button class="addToCart">Thêm vào Giỏ hàng</button>
+          </div>
+
+        </div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#description">Mô tả</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#comment">Bình luận (0)</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    <div id="description" class="container tab-pane active"><br>
+      <h4>Latte - Sự tinh tế trong hương vị, mùi vị lẫn nhãn quan</h4>
+      <p>
+        Khi chuẩn bị Latte, cà phê Espresso và sữa nóng được trộn lẫn vào nhau, bên trên vẫn là lớp bọt sữa nhưng mỏng và nhẹ hơn Cappucinno.<br>
+        Giống như Cappuchino, Latte cũng được pha chế gồm 3 lớp nguyên liệu chính: Cà phê Espresso, sữa nóng và lớp bọt sữa thơm mịn. Nếu không phải là người sành thưởng thức cà phê, bạn sẽ khó lòng phân biệt được 2 loại cà phê này. Khi pha chế Latte, các Barista thường thể hiện sự sáng tạo hoặc gửi gắm tâm ý của họ đến thực khách thông qua những hình vẽ nghệ thuật và tinh tế. Thực chất, điểm khác biệt giữa Latte và Cappuchino chính là: Lượng bọt sữa của Cappuchino dày hơn so với Latte.<br>
+        Ngoài ra, Cà phê Latte Sokoshop là một sự kết hợp tinh tế giữa vị đắng cà phê Espresso nguyên chất hòa quyện cùng vị sữa nóng ngọt ngào, bên trên là một lớp kem mỏng nhẹ tạo nên một tách cà phê hoàn hảo về hương vị lẫn nhãn quan.<br>
+        Chọn một tách Latte tinh tế chính là cách giúp bạn có một ngày thêm trọn vẹn, thử ngay nhé!
+      </p>
+
+    </div>
+
+    <div id="comment" class="container tab-pane fade"><br>
+      <h6>Bình luận từ khách hàng</h6>
+      <p>Chưa có bình luận nào.</p>
+      <form name="signUp">
+
+        <div class="form-group row info">
+          <label for="fullName" class="col-lg-2 col-3 col-form-label">Họ và tên</label>
+          <div class="col-lg-10 col-9">
+            <input id="fullName" type="text" class="form-control col-9" onfocus="this.placeholder=''" onblur="this.placeholder='Họ và tên'" placeholder="Họ và tên">
+          </div>
+        </div>
+
+        <div class="form-group row info">
+          <label for="phone" class="col-lg-2 col-3 col-form-label">Số điện thoại</label>
+          <div class="col-lg-10 col-9">
+            <input id="phone" type="text" class="form-control col-9" onfocus="this.placeholder=''" onblur="this.placeholder='Số điện thoại'" placeholder="Số điện thoại">
+          </div>
+        </div>
+
+        <div>
+          <input type="checkbox" id="saveInfo" name="saveInfo" value="saveInfo">
+          <label for="saveInfo"> Lưu tên và số điện thoại cho lần truy cập tiếp theo của bạn.</label><br>
+        </div>
+
+      </form>
+        <div class="row rating">
+<p class="col-lg-2">
+Đánh giá
+</p>
+<div class="stars col-lg-10 d-flex">
+  <form action="">
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </form>
+</div>
+</div>
+
+      <form name="signUp">
+      <div class="form-group row info">
+        <label class="col-lg-2 col-3 col-form-label" for="feedback">Bình luận</label>
+        <div class="col-lg-10 col-9 feedback">
+          <textarea id="feedback" class="form-control col-9" rows="3"></textarea>
+          <button type="submit" class="btn btn-dark">Gửi</button>
+        </div>
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal Cart-->
+<div class="modal fade" id="myCart">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+
+<!-- Mở modal -->
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+<div class="center">
+    <h3>Chi tiết đơn hàng</h3>
+</div>
+<div class="modal-body">
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+        <span class="cart-price cart-header cart-column">Giá</span>
+        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+        <span class="cart-totalprice cart-header cart-column">Tổng tiền</span>
+        <span class="cart-delete cart-header cart-column"></span>
+    </div>
+    <div class="cart-items">
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="images/CaPheSuaDa.jpg" alt="Card image" style="width:15%">
+                <span class="cart-item-title">Cà phê sữa đá</span>
+            </div>
+            <span class="cart-price cart-column">45.000đ</span>
+            <div class="cart-quantity cart-column">
+                <div class="buttons_added">
+                    <input class="minus is-form" type="button" value="-">
+                    <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                    <input class="plus is-form" type="button" value="+">
+                </div>
+            </div>
+            <span class="cart-totalprice cart-column">45.000đ</span>
+            <div class="cart-delete cart-column">
+                <button class="btn btn-danger" type="button">Xóa</button>
+            </div>
+        </div>
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="images/MatchaDaXay.jpg" alt="Card image" style="width:15%">
+                <span class="cart-item-title">Matcha đá xay</span>
+            </div>  
+            <span class="cart-price cart-column">45.000đ</span>
+            <div class="cart-quantity cart-column">
+                <div class="buttons_added">
+                    <input class="minus is-form" type="button" value="-">
+                    <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="2">
+                    <input class="plus is-form" type="button" value="+">
+                </div>
+            </div>
+            <span class="cart-totalprice cart-column">90.000đ</span>
+            <div class="cart-delete cart-column">
+                <button class="btn btn-danger" type="button">Xóa</button>
+            </div>
+        </div>
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="images/ChocolateDaXay.jpg" alt="Card image" style="width:15%">
+                <span class="cart-item-title">Chocolate đá xay</span>
+            </div>
+            <span class="cart-price cart-column">45.000đ</span>
+            <div class="cart-quantity cart-column">
+                <div class="buttons_added">
+                    <input class="minus is-form" type="button" value="-">
+                    <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                    <input class="plus is-form" type="button" value="+">
+                </div>
+            </div>
+            <span class="cart-totalprice cart-column">45.000đ</span>
+            <div class="cart-delete cart-column">
+                <button class="btn btn-danger" type="button">Xóa</button>
+            </div>
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Tổng Cộng:</strong>
+            <span class="cart-total-price">180.000VNĐ</span>
+        </div>
+    </div>
+    <div id="navigationbar">
+        <div id="rightbtn" class="cartButton">
+            <button onclick="window.location.href='../Huong/Checkout-Vadidate.html'">Thanh toán</button>
+        </div>
+    </div>
+</div>
+<!-- Đóng modal -->>
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
