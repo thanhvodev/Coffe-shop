@@ -127,7 +127,8 @@
 }
 
 #billinfo {
-  height: 500px;
+  padding-left: 15%;
+  height: 400px;
 }
 
 #addressinfo {
