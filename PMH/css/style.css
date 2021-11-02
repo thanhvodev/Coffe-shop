@@ -64,7 +64,10 @@ background-color: #EAAEAE;
 float: right;
 margin: 10px 20px;
 }
-
+.row.nav.navHome{
+    max-width: 100%;
+    margin: 0;
+}
 .cartButton:hover {
 background-color: #EEEEEE;
 }
@@ -98,13 +101,22 @@ textarea{
     width: 100px;
 }
 #myCanvas{
-    width: 100%;
     max-width: 100%;
 }
 .d-flex > div:nth-child(2){
     justify-self: end;
 }
-
+.logoFooter {
+    padding: 10px 30px;
+    font-size: 1.2em;
+    color: black;
+    font-weight: bold;
+  }
+  
+footer p {
+font-weight: normal;
+font-size: 0.8em;
+}
 
 footer {
 padding: 15px;
