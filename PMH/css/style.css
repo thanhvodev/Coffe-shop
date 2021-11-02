@@ -142,7 +142,6 @@ text-decoration: underline;
     .col-3 h4{
         font-size: calc(1em + 0.3vh);
     }
-    
 }
 @media screen and (max-width: 950px){
     .container-fluid > .row{
