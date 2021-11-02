@@ -22,6 +22,10 @@ background-color: #FFE4E1;
 height: 60px;
 }
 
+.navHome > div{
+    padding: 0;
+}
+
 .content {
 background-color: white;
 }
