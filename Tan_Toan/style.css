@@ -56,6 +56,10 @@
   background-color: #EAAEAE;
 }
 
+#largeImage {
+  margin-top: 10px;
+}
+
 .content {
   background-color: white;
 }
@@ -356,6 +360,18 @@ label.star:before {
 .pagination a:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.logoFooter {
+  padding: 10px 30px;
+  font-size: 1.2em;
+  color: black;
+  font-weight: bold;
+}
+
+footer p {
+  font-weight: normal;
+  font-size: 0.8em;
 }
 
 footer {
