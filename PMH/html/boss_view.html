@@ -21,77 +21,90 @@
 </head>
 
 <body>
-    <div class="container-fuild p-0 m-0">
-        <!-- nav -->
-        <div class="row nav navHome">
-            <div class="col-md-3 col-sm-3 col-12 logo">
-                <img id="logo" src="../imgs/logo.svg" alt="Logo"> Sokoshop
-            </div>
-
-            <div class="col-md-6 col-sm-6 col-12 listNav">
-                <ul>
-                    <li><a href="../..//Thanh/html/top-product.html">Menu</a></li>
-                        <li><a href=" #" class="active">Doanh thu</a></li>
-                </ul>
-            </div>
-
-            <div class="col-3 cart">
-                <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal" data-bs-target="#myCart">Đăng
-                    xuất <i class="fa fa-sign-out"></i></i></button>
-            </div>
+    <!-- nav -->
+    <div class="row nav navHome">
+        <div class="col-md-3 col-sm-3 col-12 logo">
+            <img id="logo" src="../imgs/logo.svg" alt="Logo"> Sokoshop
         </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3 mt-3">
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="p-2">Thống kê</h4>
-                            <form class="p-2">
-                                <div class="mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <div><label>Bắt đầu:</label></div>
-                                        <div><input type="date"></div>
-                                    </div>
+        <div class="col-md-6 col-sm-6 col-12 listNav">
+            <ul>
+                <li><a href="../..//Thanh/html/top-product.html">Menu</a></li>
+                    <li><a href=" #" class="active">Doanh thu</a></li>
+            </ul>
+        </div>
 
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div><label>Kết thúc:</label></div>
-                                        <div><input type="date"></div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                            </form>
-                        </div>
+        <div class="col-3 cart">
+            <a href="../../Tan_Toan/coffee.html"><button type="button" class="btn btn-light cartButton">Đăng xuất <i
+                  class="fa fa-sign-out"></i></button></a>
+          </div>
+    </div>
 
-                        <div class="col">
-                            <h4 class="p-2">Chi phí phát sinh</h4>
-                            <form class="p-2">
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div><label>Ngày:</label></div>
-                                        <div><input type="date"></div>
-                                    </div>
+    <div class="container-fluid mb-3">
+        <div class="row mt-3">
+            <div class="col col-xl-3 col-xxl-3 p-3 max-width">
+                <div class="row column">
+                    <div class="col max-width mb-3 shadow backgr padnone">
+                        <h2 class="backgr">Thống kê</h2>
+                        <div class="row column max-width mt-3 p-2">
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Bắt đầu:</div>
+                                    <div class="col-8"><input type="date"></div>
                                 </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div><label>Chi phí:</label></div>
-                                        <div><input type="number"></div>
-                                    </div>
+                            </div>
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Kết thúc:</div>
+                                    <div class="col-8"><input type="date"></div>
                                 </div>
-                                <div class="mb-3">
-                                    <div><label>Ghi chú:</label></div>
-                                    <div><textarea></textarea></div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Xong</button>
-                            </form>
+                            </div>
+                            <div class="col mb-2"><span class="click p-1"><i class="fas fa-search"></i> Tìm kiếm</span></div>
                         </div>
                     </div>
 
+                    <div class="col max-width mt-3 shadow backgr padnone">
+                        <h2 class="backgr">Chi phí cửa hàng</h2>
+                        <div class="row  max-width column mt-3 p-2">
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Ngày:</div>
+                                    <div class="col-8"><input type="date"></div>
+                                </div>
+                            </div>
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Loại chi phí:</div>
+                                    <div class="col-8"><input type="text" list="datatype">
+                                        <datalist id="datatype">
+                                            <option value="Cafe">
+                                            <option value="Trà">
+                                            <option value="Đường">
+                                            <option value="Đá">
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Đơn giá:</div>
+                                    <div class="col-8"><input type="number"></div>
+                                </div>
+                            </div>
+                            <div class="col mb-2">
+                                <div class="row">
+                                    <div class="col-4">Số lượng:</div>
+                                    <div class="col-8"><input type="number"></div>
+                                </div>
+                            </div>
+                            <div class="col mb-2"><span class="click pad">Xong</span></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-9 mt-3">
-                    <div class="chart">
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-9 col-xxl-9 p-1 width-100">
+                <div class="row width-100">
+                    <div class="col-12 chart shadow p-1">
                         <div class="d-flex justify-content-between">
                             <h2>Đồ thị doanh số</h2>
                             <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">Hiển thị</button>
@@ -100,60 +113,42 @@
                                 <li><a class="dropdown-item" href="#">Tháng</a></li>
                             </ul>
                         </div>
-                        <hr class="m-3" />
-                        <div id="myCanvas"></div>
+                        <hr>
+                        <div id="chartLine"></div>
                     </div>
-                    <div class="table">
+                    
+                    <div class="col-12 mt-3 shadow p-1">
                         <div class="d-flex justify-content-between">
                             <h2>Doanh số cửa hàng</h2>
                             <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">Hiển thị</button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Ngày</a></li>
                                 <li><a class="dropdown-item" href="#">Tuần</a></li>
                                 <li><a class="dropdown-item" href="#">Tháng</a></li>
                             </ul>
+                        </div>  
+                        <div id="table">
                         </div>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Ngày</th>
-                                    <th>Tổng hóa đơn</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Chí phí</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>20/11/2021</td>
-                                    <td>30</td>
-                                    <td>1000000</td>
-                                    <td>1000000</td>
-                                </tr>
-                                <tr>
-                                    <td>20/11/2021</td>
-                                    <td>30</td>
-                                    <td>1000000</td>
-                                    <td>1000000</td>
-                                </tr>
-                                <tr>
-                                    <td>20/11/2021</td>
-                                    <td>30</td>
-                                    <td>1000000</td>
-                                    <td>1000000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div id="next" class="d-flex justify-content-center">
+                            <div class="prev">Trang trước</div>
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>...</div>
+                            <div>4</div>
+                            <div class="next">Trang sau</div>
+                        </div>
                     </div>
                 </div>
-                
-            <footer>
-                <div class="logoFooter">
-                <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-                <img id="logo" src="../imgs/logo.svg" alt="Logo"> Sokoshop
-                </div>
-            </footer>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <div class="logoFooter">
+          <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
+          <img id="logo" src="../imgs/logo.svg" alt="Logo"> Sokoshop
+        </div>
+      </footer>
     <script src="../js/index.js"></script>
 </body>
 
