@@ -1,4 +1,4 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -107,6 +107,12 @@ h2.backgr{
 .width-100{
     max-width: 100% !important;
 }
+.mg-l{
+    margin-left: 0 !important;
+}
+.mg-r{
+    margin-right: 0 !important;
+}
 input{
     width: 100%;
     max-width: 100%;
@@ -119,17 +125,18 @@ input{
 #chartLine::-webkit-scrollbar{
     width: 0px;
     height: 4px;
+    margin-top: 10px;
 }
 #chartLine::-webkit-scrollbar-track{
     box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
 }
 #chartLine::-webkit-scrollbar-thumb{
-      background: #af7777;
-      border-radius: 10px;
+    background: #af7777;
+    border-radius: 10px;
 }
-#chartLine::-webkit-scrollbar-thumb:hover {
-      background: #EAAEAE;
+#chartLine::-webkit-scrollbar-thumb:hover{
+    background: #EAAEAE;
 }
 .container-fluid{
     min-height: 80vh;
@@ -141,17 +148,16 @@ input{
 #next{
     margin: 10px;
 }
-
 #next *{
-    border: 1px solid black;
     padding: 5px 10px;
     cursor: pointer;
 }
-#next .prev{
-    border-radius: 15px 0 0 15px;
+#next .item:hover{
+    background-color: #f0dada;
 }
-#next .next{
-    border-radius: 0 15px 15px 0;
+#next .next:hover,
+#next .prev:hover{
+    color: #d4a8a8;
 }
 /*-------------------------------------------------------------------------*/
 .logoFooter {

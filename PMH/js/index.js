@@ -18,7 +18,7 @@ function getoption(width, str){
         title: 'Doanh số cửa hàng theo ' + str,
         subtitle: 'Tổng cộng (VND)',
         width: width,
-        height: 700,
+        height: 500,
         legend: {position: 'bottom'},
         textStyle: {
             fontName: 'Times-Roman',
@@ -33,7 +33,7 @@ function getoption(width, str){
 }
 function getData(list1, list2, list3){
     const list = [];
-    for (let index = 0; index < list1.length; index++) {
+    for (let index = list1.length - 1; index >= 0; index--) {
         const element = [];
         element.push(list1[index]);
         element.push(list2[index]);
@@ -89,17 +89,38 @@ function get_innerHTML(head, body){
     let str = head + body;
     return ttable(str);
 }
-///////////////////////
-/*function change_Display(element){
-    let string = element.children[0].innerText;
-}*/
-
+//-----------------------//
+function clickNext(n){
+    if(n > 1){
+        let str = "<div class=\"prev\"><i class=\"fas fa-angle-double-left\"></i></div>";
+        for(var i = 1; i <= n; i++){
+            str += "<div class=\"item\">" + i + "</div>";
+        }
+        str +=  "<div class=\"prev\"><i class=\"fas fa-angle-double-right\"></i></div>";
+        return str;
+    }
+    return "";
+}
+function call_clickNext(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee){
+    old_element.style.backgroundColor = "white";
+    element.style.backgroundColor = "rgb(240, 218, 218)";
+    parentNode.childNodes[0].value = element.value - 1;
+    parentNode.childNodes[parentNode.childNodes.length - 1].value = element.value + 1;
+    table.innerHTML = get_innerHTML(get_Head(listTitle), get_Body(Dateformat(listTime[element.value - 1]), listBill[element.value-1], Priceformat(listRevenue[element.value - 1]), Priceformat(listFee[element.value - 1])));
+    return element;
+}
+function call_clickNode(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee){
+    if(element.value >= 1 && element.value < parentNode.childNodes.length - 1){
+        return call_clickNext(old_element, parentNode.childNodes[element.value], parentNode, table, listTitle, listTime, listBill, listRevenue, listFee);    
+    }
+    return old_element;
+}
+//----------------------//
 function option(element){
     let str = "";
     element.forEach(element => {str += "<option value=\"" + element + "\">"; });
     return str;
 }
-
 function getTime(element){
     var timer = element.parentNode.parentNode.getElementsByTagName("input");
     console.log(timer[0].value);
@@ -119,6 +140,7 @@ function getValue(element, list){
 function getlistType(){
     return ["Cafe", "Trà"];
 }//
+//------------------------//
 function Dateformat(element){
     var list = [];
     for(var i = 0; i < element.length; i++){
@@ -147,20 +169,21 @@ function Priceformat(element){
     }
     return list;
 }
-function getMonth(element){
+function getDay_inMonth(element){
     let str = "";
     let liststr = [];
     let listcount = [];
-    let count = 0
+    let count = [];
     for (let index = 0; index <= element.length; index++) {
         if(index < element.length){
             if(str != element[index].split('-')[1]){
+                if(str != "")
+                    listcount[listcount.length] = count;
                 str = element[index].split('-')[1];
                 liststr[liststr.length] = Number(str);
-                listcount[listcount.length] = count;
-                count = 0;
+                count = [];
             }
-            count += 1;
+            count[count.length] = element[index];
         }
         else{
             listcount[listcount.length] = count;
@@ -168,20 +191,58 @@ function getMonth(element){
     }
     return [liststr, listcount];
 }
-function totalPriceinMonth(element1, list){
+function classify(element){
+    var listYear = [];
+    var str = "";
+    var listDay = [];
+    for(var index = 0; index <= element.length; index++){
+        if(index < element.length){
+            if(str != element[index].split('-')[0]){
+                if(str != "") listYear[listDay.length] = [str, getDay_inMonth(listDay)];
+                str = element[index].split('-')[0];
+                listDay = [];
+            }
+            listDay[listDay.length] = element[index];
+        }
+        else{
+            listYear[listYear.length] = [str, getDay_inMonth(listDay)];
+        }
+    }
+    return listYear;
+}
+function Sum_money(element1, list){
     var lreturn = [];
+    var listprice = [];
+    var listpricetotal = [];
     var indexelement = 0;
-    for (let index = 1; index < list.length; index++) {
+    for (let index = 0; index < list.length; index++) {
         total = 0;
-        for(var i = 0; i < list[index]; i++){
+        for(var i = 0; i < list[index].length; i++){
+            listprice[listprice.length] = element1[indexelement];
             total += element1[indexelement];
             indexelement += 1;
         }
         lreturn[lreturn.length] = total;
+        listpricetotal[listpricetotal.length] = listprice;
+        listprice = [];
     }
-    return lreturn;
+    return [lreturn, listpricetotal];
 }
-function displayMonth(element){
+function getBIll_inMonth(element, list){
+    var listreturn = [];
+    var node = [];
+    var indexelement = 0;
+    for (let index = 0; index < list.length; index++) {
+        for (let j = 0; j < list[index].length; j++) {
+            node[node.length] = element[indexelement];
+            indexelement += 1;
+        }
+        listreturn[listreturn.length] = node;
+        node = [];
+    }
+    return listreturn;
+}
+function label_Month(element){
     let list = [];
     for (let index = 0; index < element.length; index++) {
         list[list.length] = "Tháng " + element[index];
@@ -189,8 +250,81 @@ function displayMonth(element){
     return list;
 }
 ///////////////////////
+function getWeekNumber(element) {
+    const d = new Date(element.split('-')[0], element.split('-')[1], element.split('-')[2]);
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+    return weekNo;
+}
+function getDay_inWeek(element){
+    let str = "";
+    let liststr = [];
+    let listcount = [];
+    let count = [];
+    for (let index = 0; index <= element.length; index++) {
+        if(index < element.length){
+            if(str != getWeekNumber(element[index])){
+                if(str != "")
+                    listcount[listcount.length] = count;
+                str = getWeekNumber(element[index]);
+                liststr[liststr.length] = Number(str);
+                count = [];
+            }
+            count[count.length] = element[index];
+        }
+        else{
+            listcount[listcount.length] = count;
+        }
+    }
+    return [liststr, listcount];
+}
+function label_Week(element){
+    let list = [];
+    for (let index = 0; index < element.length; index++) {
+        list[list.length] = "Tuần " + element[index];
+    }
+    return list;
+}
+//--------------------------------//
+function Drawline_option(label_display, chartLine, listTime, listRevenue, listFee, func){
+    var width = chartLine.offsetWidth;
+    if(width < 600) width = 600;
+    Drawline(getoption(width, label_display.toLowerCase()), label_display, getData(func(listTime), listRevenue, listFee), chartLine);
+}
+function Table_option(table, list_Title, listTime, listBill, listRevenue, listFee){
+    table.innerHTML = get_innerHTML(get_Head(list_Title), get_Body(Dateformat(listTime), listBill, Priceformat(listRevenue), Priceformat(listFee)));
+}
+function next_click_option(next_click, table, lengthnext, list_Title, listTime, listBill, listRevenue, listFee){ 
+    next_click.innerHTML = clickNext(lengthnext);
+    var next_clicked_button = next_click.childNodes[1];
+    if(next_click.childNodes.length > 1){
+        next_click.childNodes[1].style.backgroundColor = "#f0dada";
+        for (let index = 1; index < next_click.childNodes.length - 1; index++) {
+            next_click.childNodes[index].value = index;
+            next_click.childNodes[index].addEventListener("click", function(){
+                                        next_clicked_button =  call_clickNext(next_clicked_button, next_click.childNodes[index],  next_click, table, list_Title, 
+                                                                            listTime, listBill, listRevenue, listFee)
+                                        });
+        }
+        next_click.childNodes[0].value = 0;
+        next_click.childNodes[0].addEventListener("click", function(){ next_clicked_button = call_clickNode(next_clicked_button, next_click.childNodes[0], next_click, table,
+                                                                                        list_Title, listTime, listBill, listRevenue, listFee)
+                                                                                    });
+        next_click.childNodes[next_click.childNodes.length - 1].value = 2;
+        next_click.childNodes[next_click.childNodes.length - 1].addEventListener("click", function(){next_clicked_button = call_clickNode(next_clicked_button, next_click.childNodes[next_click.childNodes.length - 1], 
+                                                                                                    next_click, table, list_Title, listTime, listBill, 
+                                                                                                    listRevenue, listFee)
+                                                                                                });
+    }
+}
+//function option_Week(list_Title, listTime, listBill, listRevenue, listFee){
+    
+//}
+//--------------------------------//
 const listTitle = ["Ngày", "Số hóa đơn", "Doanh số (VND)", "Chi phí (VND)"];
-var listTime_week = ["2021-11-18", "2021-11-17", "2021-11-16", "2021-11-15", "2021-11-14", 
+var listTime = ["2021-11-18", "2021-11-17", "2021-11-16", "2021-11-15", "2021-11-14", 
                      "2021-11-13", "2021-11-12", "2021-11-11", "2021-10-18", "2021-10-17", 
                      "2021-10-16", "2021-10-15", "2021-10-14", "2021-10-13", "2021-10-12", 
                      "2021-10-11", "2021-10-10", "2021-09-18", "2021-09-17", "2021-09-16", 
@@ -218,48 +352,59 @@ const listFee = [300, 1000, 50, 50, 70,
                  221, 234, 1119, 232, 234, 
                  1119, 122, 331
                 ];
-
 for (let index = 0; index < 28; index++) {
     listRevenue[index] *= 1000;
     listFee[index] *= 1000;
 }
+var listTime_month = getDay_inMonth(listTime);
+var listRevenue_month = Sum_money(listRevenue, listTime_month[1]);
+var listFee_month = Sum_money(listFee, listTime_month[1]);
+var listBill_month = getBIll_inMonth(listBill, listTime_month[1]);
 
-var width = screen.availWidth;
-if(width > 1200){
-    width *= 0.7;
-}
-else if(width > 500){
-    width *= 0.9;
-}
-else{
-    width = 500;
-}
+var listTime_week = getDay_inWeek(listTime);
+var listRevenue_week = Sum_money(listRevenue, listTime_week[1]);
+var listFee_week = Sum_money(listFee, listTime_week[1]);
+var listBill_week = getBIll_inMonth(listBill, listTime_week[1]);
+
+//       Draw chart
 var chartLine = document.getElementById('chartLine');
-
-Drawline(getoption(width, "tháng"), "Tháng", getData(displayMonth(getMonth(listTime_week)[0]), totalPriceinMonth(listRevenue, getMonth(listTime_week)[1]), totalPriceinMonth(listFee, getMonth(listTime_week)[1])), chartLine);
-
-console.log(getMonth(listTime_week));
-console.log(totalPriceinMonth(listRevenue, getMonth(listTime_week)[1]));
+Drawline_option("Tháng", chartLine, listTime_month[0], listRevenue_month[0], listFee_month[0], label_Month);
+//  Default table
 var table = document.getElementById("table");
-table.innerHTML = get_innerHTML(get_Head(listTitle), get_Body(Dateformat(listTime_week), listBill, Priceformat(listRevenue), Priceformat(listFee)));
-
-
-
-
-////////////
-var displaychart = chartLine.parentNode.querySelectorAll('li');
-
 var next_click = document.getElementById("next");
-console.log(next_click.children);
-next_click.children[1].style.backgroundColor = "blue";
+Table_option(table, listTitle, listTime_week[1][0], listBill_week[0], listRevenue_week[1][0], listFee_week[1][0]);
+next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1]);
+
+// Display chart
+var displaychart = chartLine.parentNode.querySelectorAll('li');
+displaychart[0].childNodes[0].addEventListener("click", function(){
+        Drawline_option(displaychart[0].childNodes[0].innerText, chartLine, listTime_week[0], listRevenue_week[0], listFee_week[0], label_Week);
+    });
+displaychart[1].childNodes[0].addEventListener("click", function(){
+        Drawline_option(displaychart[1].childNodes[0].innerText, chartLine, listTime_month[0], listRevenue_month[0], listFee_month[0], label_Month);
+    });
+// Display table
+var displayTable = table.parentNode.querySelectorAll('li');
+displayTable[0].childNodes[0].addEventListener("click", function(){    
+        Table_option(table, listTitle, listTime_week[1][0], listBill_week[0], listRevenue_week[1][0], listFee_week[1][0]);
+        next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1]);
+    });
+displayTable[1].childNodes[0].addEventListener("click", function(){    
+        Table_option(table, listTitle, listTime_month[1][0], listBill_month[0], listRevenue_month[1][0], listFee_month[1][0]);
+        next_click_option(next_click, table, listTime_month[0].length, listTitle, listTime_month[1], listBill_month, listRevenue_month[1], listFee_month[1]);
+    });
+
+//var h2 = document.getElementsByTagName("h2");
+//console.log(h2[3].childNodes);
+
 //displaychart.forEach(element => element.addEventListener("click", ))
-var click = document.getElementsByClassName("click");
+var click_form = document.getElementsByClassName("click");
 var listtype = [];
 listtype = getlistType();
 console.log(listtype);
 var datatype = document.getElementById("datatype");
 datatype.innerHTML = option(listtype);
 
-click[0].addEventListener("click", function(){ getTime(click[0]);});
-click[1].addEventListener("click", function(){ getValue(click[1], listtype);});
+click_form[0].addEventListener("click", function(){ getTime(click_form[0]);});
+click_form[1].addEventListener("click", function(){ getValue(click_form[1], listtype);});
 //////////////////////
