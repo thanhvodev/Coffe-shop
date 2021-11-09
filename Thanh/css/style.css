@@ -275,3 +275,9 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+.linkimg {
+  margin-left: 0;
+  width: 100%;
+  border: 1px solid black;
+}
