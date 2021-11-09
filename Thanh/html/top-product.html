@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản lý | Sản phẩm hàng đầu</title>
+  <title>Sản phẩm hàng đầu</title>
   <link rel="shortcut icon" type="image/x-icon" href="../images/logo.svg" />
   <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,7 +13,12 @@
 </head>
 
 <body>
+
+  <div id="modal-products">
+  </div>
+  <!-- All -->
   <div class="container-fluid">
+    <!-- Nav Bar -->
     <div class="row nav navHome">
       <div class="col-md-3 col-sm-3 col-12 logo">
         <img id="logo" src="../images/logo.svg" alt="Logo"> Sokoshop
@@ -31,7 +36,6 @@
               class="fa fa-sign-out"></i></button></a>
       </div>
     </div>
-    <!-- End Nav -->
 
     <div class="container-fluid">
       <div class="row content">
@@ -39,11 +43,11 @@
           <div class="category">
             <h4>Danh mục sản phẩm</h4>
             <ul>
-              <li><a class="active" href="#">Sản phẩm hàng đầu</a></li>
-              <li><a href="#">Cà phê</a></li>
-              <li><a href="#">Trà trái cây - trà sữa</a></li>
-              <li><a href="./da-xoay.html">Đá xay - Choco - Matcha</a></li>
-              <li><a href="#">Thưởng thức tại nhà</a></li>
+              <li><a id="toppr" class="active" href="#">Sản phẩm hàng đầu</a></li>
+              <li><a id="cof" href="#">Cà phê</a></li>
+              <li><a id="tea" href="#">Trà trái cây - trà sữa</a></li>
+              <li><a id="choco" href="#">Đá xay - Choco - Matcha</a></li>
+              <li><a id="athome" href="#">Thưởng thức tại nhà</a></li>
             </ul>
           </div>
           <button type="button" class="btn btn-primary news" style="width: 88%;" data-bs-toggle="modal"
@@ -65,14 +69,11 @@
                       <div class="col-6">
                         <img id="thumbnail-adding" src="../images/add-image.png" class="bg-info img-fluid">
                         <input id="link-image" type="text" class="btn news linkimg" placeholder="link to image">
-                        Thêm ảnh
-                        </input>
                         <select id="select-cate" class="form-select" aria-label="Default select example">
                           <option value="0" selected>Cà phê</option>
                           <option value="1">Trà trái cây - trà sữa</option>
                           <option value="2">Đá xoay - choco - Matcha</option>
                           <option value="3">Thưởng thức tại nhà</option>
-                          <option value="4">Bánh - Snack</option>
                         </select>
                       </div>
 
@@ -84,7 +85,6 @@
                           </div>
                           <div class="mb-3">
                             <label for="description" class="form-label">Mô tả</label>
-                            <!-- <input type="text" class="form-control" id="exampleInputPassword1"> -->
                             <textarea name="description" id="description" cols="22" rows="5"></textarea>
                           </div>
                           <div class="mb-3">
@@ -101,9 +101,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button id="add-product" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
-                    changes</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                  <button id="add-product" type="button" class="btn btn-primary" data-bs-dismiss="modal">Lưu</button>
                 </div>
               </div>
             </div>
@@ -123,18 +122,21 @@
           </div>
           <div id="product-holder" class="row">
           </div>
-
         </div>
       </div>
-      <footer>
-        <div class="logoFooter">
-          <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-          <img id="logo" src="../images/logo.svg" alt="Logo"> Sokoshop
-        </div>
-      </footer>
-      <script src="../js/ProductData.js"></script>
-      <script src="../js/AddProduct.js"></script>
     </div>
+
+  </div>
+
+  <footer>
+    <div class="logoFooter">
+      <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
+      <img id="logo" src="../images/logo.svg" alt="Logo"> Sokoshop
+    </div>
+  </footer>
+
+  <script src="../js/ProductData.js"></script>
+  <script src="../js/AddProduct.js"></script>
 </body>
 
 
