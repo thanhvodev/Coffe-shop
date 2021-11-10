@@ -43,8 +43,8 @@ addProduct.addEventListener("click", function () {
               <div class="row">
                 <div class="col-6">
                   <img src="${prod[0].imgSrc}" class="bg-info img-fluid">
-                  <input id="link-image-update" type="text" class="btn news linkimg" value="${prod[0].imgSrc}">
-                  <select id="select-cate-update" class="form-select" aria-label="Default select example">
+                  <input id="link-image-update-${tid}" type="text" class="btn news linkimg" value="${prod[0].imgSrc}">
+                  <select id="select-cate-update-${tid}" class="form-select" aria-label="Default select example">
                     <option value="0" ${prod[0].cate === "0" ? "selected" : null}>Cà phê</option>
                     <option value="1" ${prod[0].cate === "1" ? "selected" : null}>Trà trái cây - trà sữa</option>
                     <option value="2" ${prod[0].cate === "2" ? "selected" : null}>Đá xoay - choco - Matcha</option>
@@ -56,18 +56,18 @@ addProduct.addEventListener("click", function () {
                 <form>
                   <div class="mb-3">
                     <label for="name" class="form-label">Tên sản phẩm</label>
-                    <input id="name-update" type="text" class="form-control" value="${prod[0].name}">
+                    <input id="name-update-${tid}" type="text" class="form-control" value="${prod[0].name}">
                   </div>
                   <div class="mb-3">
                     <label for="description" class="form-label">Mô tả</label>
-                    <textarea id="description-update" name="description" cols="22" rows="5">${prod[0].des}</textarea>
+                    <textarea id="description-update-${tid}" name="description" cols="22" rows="5">${prod[0].des}</textarea>
                   </div>
                   <div class="mb-3">
                     <label for="price" class="form-label">Giá</label>
-                    <input id="price-update" type="number" class="form-control" value="${prod[0].price}">
+                    <input id="price-update-${tid}" type="number" class="form-control" value="${prod[0].price}">
                   </div>
                   <div class="mb-3 form-check">
-                    <input id="top-product-update" type="checkbox" class="form-check-input" ${prod[0].isTopProduct ? "checked" : null}>
+                    <input id="top-product-update-${tid}" type="checkbox" class="form-check-input" ${prod[0].isTopProduct ? "checked" : null}>
                     <label class="form-check-label" for="exampleCheck1">Sản phẩm hàng đầu</label>
                   </div>
                 </form>
@@ -75,9 +75,9 @@ addProduct.addEventListener("click", function () {
             </div>
           </div>
           <div class="modal-footer">
-              <button id="delete" onclick="xoa(${tid})" type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa sản phẩm</button>
+              <button onclick="xoa(${tid})" type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa sản phẩm</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-              <button id="save" onclick="sua(${tid})" type="button" class="btn btn-primary" data-bs-dismiss="modal">Lưu</button>
+              <button onclick="sua(${tid})" type="button" class="btn btn-primary" data-bs-dismiss="modal">Lưu</button>
           </div>
       </div>
   </div>
@@ -104,11 +104,11 @@ function xoa(pid) {
 }
 
 function sua(pid) {
-  let e = document.getElementById("select-cate-update");
-  let tname = document.getElementById("name-update").value;
-  let tprice = document.getElementById("price-update").value;
-  let tdes = document.getElementById("description-update").value;
-  let tisTopProduct = document.getElementById("top-product-update").checked;
+  let e = document.getElementById(`select-cate-update-${pid}`);
+  let tname = document.getElementById(`name-update-${pid}`).value;
+  let tprice = document.getElementById(`price-update-${pid}`).value;
+  let tdes = document.getElementById(`description-update-${pid}`).value;
+  let tisTopProduct = document.getElementById(`top-product-update-${pid}`).checked;
 
   for (let x in prod) {
     if (prod[x].id == pid) {
@@ -117,7 +117,7 @@ function sua(pid) {
       prod[x].des = tdes;
       prod[x].isTopProduct = tisTopProduct;
       prod[x].cate = e.options[e.selectedIndex].value;
-      prod[x].imgSrc = document.getElementById("link-image-update").value;
+      prod[x].imgSrc = document.getElementById(`link-image-update-${pid}`).value;
       break;
     }
   }
