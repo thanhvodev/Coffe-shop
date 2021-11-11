@@ -36,7 +36,8 @@ CREATE TABLE `custommer` (
 CREATE TABLE `order` (
   `ID_ORDER` int NOT NULL,
   `DTIME` date DEFAULT NULL,
-  `TOTAL` int DEFAULT NULL
+  `TOTAL` int DEFAULT NULL,
+  `STATE` tinyint(1)  NULL
 );
 
 -- --------------------------------------------------------
