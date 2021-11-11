@@ -5,7 +5,7 @@ const productsEl = document.getElementById("product-holder");
 const inputLinkImage = document.getElementById("link-image");
 var category = "Sản phẩm hàng đầu";
 
-inputLinkImage.addEventListener("change", function () {
+inputLinkImage.addEventListener("input", function () {
   document.getElementById("thumbnail-adding").src = inputLinkImage.value;
 })
 
@@ -35,15 +35,15 @@ addProduct.addEventListener("click", function () {
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin sản phẩm</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6">
-                  <img src="${prod[0].imgSrc}" class="bg-info img-fluid">
-                  <input id="link-image-update-${tid}" type="text" class="btn news linkimg" value="${prod[0].imgSrc}">
+                  <img id="thumbnail-adding-${tid}" src="${prod[0].imgSrc}" class="bg-info img-fluid">
+                  <input id="link-image-update-${tid}" oninput="upthumb(${tid})" type="text" class="btn news linkimg" value="${prod[0].imgSrc}">
                   <select id="select-cate-update-${tid}" class="form-select" aria-label="Default select example">
                     <option value="0" ${prod[0].cate === "0" ? "selected" : null}>Cà phê</option>
                     <option value="1" ${prod[0].cate === "1" ? "selected" : null}>Trà trái cây - trà sữa</option>
@@ -98,6 +98,10 @@ addProduct.addEventListener("click", function () {
 // const delePro = document.getElementById("delete");
 // const savPro = document.getElementById("save");
 
+function upthumb(pid) {
+  document.getElementById(`thumbnail-adding-${pid}`).src = document.getElementById(`link-image-update-${pid}`).value;
+}
+
 function xoa(pid) {
   prod = prod.filter(item => item.id != pid);
   renderProducts(category);
@@ -109,6 +113,7 @@ function sua(pid) {
   let tprice = document.getElementById(`price-update-${pid}`).value;
   let tdes = document.getElementById(`description-update-${pid}`).value;
   let tisTopProduct = document.getElementById(`top-product-update-${pid}`).checked;
+  let timgSrc = document.getElementById(`link-image-update-${pid}`);
 
   for (let x in prod) {
     if (prod[x].id == pid) {
@@ -117,7 +122,7 @@ function sua(pid) {
       prod[x].des = tdes;
       prod[x].isTopProduct = tisTopProduct;
       prod[x].cate = e.options[e.selectedIndex].value;
-      prod[x].imgSrc = document.getElementById(`link-image-update-${pid}`).value;
+      prod[x].imgSrc = timgSrc.value;
       break;
     }
   }
