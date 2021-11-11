@@ -6,26 +6,15 @@
 -- Generation Time: Nov 10, 2021 at 06:45 PM
 -- Server version: 8.0.26
 -- PHP Version: 7.4.23
+DROP SCHEMA IF EXISTS `SOKOSHOP`;
+CREATE SCHEMA `SOKOSHOP`;
+USE `SOKOSHOP`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `sokoshop`
---
-
 -- --------------------------------------------------------
-
---
--- Table structure for table `cost`
---
 
 CREATE TABLE `cost` (
   `ID` int NOT NULL,
@@ -33,55 +22,62 @@ CREATE TABLE `cost` (
   `CATEGORY` varchar(100) DEFAULT NULL,
   `PRICE` int DEFAULT NULL,
   `QUANTITY` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `custommer`
---
-
 CREATE TABLE `custommer` (
   `ID` int NOT NULL,
   `FULLNAME` text,
   `PHONE_NO` text,
   `COMMENT` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `order`
---
-
 CREATE TABLE `order` (
   `ID_ORDER` int NOT NULL,
   `DTIME` date DEFAULT NULL,
   `TOTAL` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `product`
---
-
 CREATE TABLE `product` (
   `PID` char(5) NOT NULL,
-  `PRO_NAME` varchar(100) DEFAULT NULL,
-  `PRICE` int DEFAULT NULL,
-  `QUANTITY` int DEFAULT NULL,
-  `FUND` int DEFAULT NULL,
+  `PRO_NAME` varchar(100)  NULL,
+  `PRICE` int  NULL,
+  `QUANTITY` int  NULL,
+  `FUND` int  NULL,
   `IMAGE_URL` text,
   `TITLE` text,
   `DESCR` text,
   `CAT_NAME` varchar(100) NOT NULL,
-  `TOP_PRO` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `TOP_PRO` tinyint(1)  NULL
+);
 
---
--- Dumping data for table `product`
---
+-- --------------------------------------------------------
+CREATE TABLE `product_in_order` (
+  `PID` char(5) NOT NULL,
+  `ORDER_ID` int NOT NULL,
+  `QUANTITY` int DEFAULT NULL,
+  `NOTE` text
+);
+ALTER TABLE `cost`
+  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `custommer`
+  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`ID_ORDER`);
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`PID`);
+ALTER TABLE `product_in_order`
+  ADD PRIMARY KEY (`PID`,`ORDER_ID`),
+  ADD KEY `ORDER_ID` (`ORDER_ID`);
+
+
+ALTER TABLE `product_in_order`
+  ADD CONSTRAINT `product_in_order_ibfk_1` FOREIGN KEY (`PID`) REFERENCES `product` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_in_order_ibfk_2` FOREIGN KEY (`ORDER_ID`) REFERENCES `order` (`ID_ORDER`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 
 INSERT INTO `product` (`PID`, `PRO_NAME`, `PRICE`, `QUANTITY`, `FUND`, `IMAGE_URL`, `TITLE`, `DESCR`, `CAT_NAME`, `TOP_PRO`) VALUES
 ('pro01', 'Cà Phê Sữa Đá', 29000, 50, 10000, 'images/CaPheSuaDa.jpg', 'Cà phê sữa đá - Sự độc đáo trong thưởng thức cà phê của người Việt ', 'Cà phê phin kết hợp cùng sữa đặc là một sáng tạo đầy tự hào của người Việt, được xem món uống thương hiệu của Việt Nam.\r\n\r\nKhi người Pháp đem văn hóa cà phê vào Việt Nam, người bản xứ thay thế sữa tươi đắt đỏ bằng sữa đặc rẻ tiền hơn để pha cùng cà phê. Tuy nhiên, bằng sự kết hợp hài hòa giữa các thái cực đắng – ngọt, bùi – béo, ly cà phê sữa đá lại sánh đặc và đậm đà hơn, không làm mất đi công dụng của cà phê mà bổ sung thêm năng lượng cho cơ thể từ sữa đã trở thành quen thuộc với nếp sống của người Việt và là một nét sáng tạo riêng, chinh phục được trái tim hàng triệu người yêu cà phê trên thế giới.\r\n\r\nNhà báo Nicola Graydon từng miêu tả và chia sẻ cảm nhận của mình trên tờ nhật báo nổi tiếng của Anh rằng: \"Đó là loại cà phê mạnh, nhỏ giọt từ một phin kim loại nhỏ, bên dưới ly chứa khoảng ¼ lượng sữa đặc. Sau khoảng 15 phút, khi café ngừng nhỏ giọt, bạn sẽ khuấy đều và cho đá vào. Đầu tiên, tôi không chịu được cái ngọt kiểu như vậy. Tuy nhiên sau 3 ngày, tôi bị khuất phục và nghiện cái ngọt “thần thánh” ấy. Thật tuyệt vời khi cảm nhận cái ngọt thanh mát trong cuống họng, điều mà chúng ta không thấy ở một ly latte cổ điển”.\r\n\r\nCũng có người đã miêu tả Cà phê sữa đá rằng: Cà phê thì đắng mà sữa lại quá ngọt ngào. Hai vị đắng - ngọt như hương vị của cuộc sống, nên thưởng thức Cà phê sữa cũng giống như đang thưởng thức cuộc sống.', 'Cà Phê', 1),
@@ -113,67 +109,3 @@ INSERT INTO `product` (`PID`, `PRO_NAME`, `PRICE`, `QUANTITY`, `FUND`, `IMAGE_UR
 ('pro27', 'Sinh Tố Việt Quất', 59000, 30, 30000, 'images/SinhToVietQuat.jpg', 'Sinh tố Việt quất – Uống ngon, uống “đẹp”', 'Sự phối hợp hợp tinh tế của Barista Soko\r\n\r\nSinh tố là tên gọi chung của những món trái cây xay. Ở Đây chúng ta có sinh tố việt quất với thành phần chính là mứt việt quất, sữa chua và Foam cheese. Mứt Việt Quất chua thanh, ngòn ngọt, phối hợp nhịp nhàng với dòng sữa chua bổ dưỡng, thêm vào đó là vị béo của Foam cheese được Barista Soko phối hợp tinh tế. Tất cả tạo món sinh tố thơm ngon mà cả đầu lưỡi và làn da đều thích. \r\n\r\nVới thành phần chính là mứt việt quất - loại trái cây được nhiều yêu thích vì công dụng cho sức khoẻ và đặc biệt làn da. Sinh tố việt quất có nhiều lợi ích có thể kể đến như:\r\n\r\n- Tốt cho làn da: Vitamin C trong việt quất được xem như là một dưỡng chất cần thiết giúp da tránh khỏi sự lão hóa da dưới tác động của ánh nắng mặt trời, ô nhiễm và khói bụi. \r\n\r\n- Những lợi ích đáng kể đối với sức khoẻ: Ngoài vitamin C, trong việt quất còn chứa các loại khoáng chất khác có ích như Vitamin K, Canxi, magie, kali… giúp xương chắc khoẻ, giảm nguy cơ mắc bệnh tiểu đường, tăng cường hệ tiêu hoá và giúp bạn kiểm soát cân nặng nhờ vào chất xơ có trong thành phần.\r\n\r\nTại Sokoshop, mỗi thức uống ra đời không chỉ đảm bảo tiêu chí ngon miệng mà còn quan tâm đến công dụng đối với sức khoẻ.\r\n\r\n﻿﻿﻿Gọi ngay một ly sinh tố việt quất làm quà cho làn da bạn nhé!', 'Đá Xay - Choco - Matcha', 0),
 ('pro28', 'Cà Phê Peak Flavor Hương Thơm Đỉnh Cao (350G)', 90000, 20, 40000, 'images/PeakFlavor.jpg', 'Cà phê rang xay Peak Flavor - Hương thơm đỉnh cao', 'Sokoshop tin rằng, mỗi hạt cà phê đều mang một cá tính riêng biệt, không thể nào hòa lẫn. \r\n\r\n\"Cá tính\" rất riêng ấy được tạo nên bởi vùng thổ nhưỡng mà cây được vun trồng, bởi bàn tay người nông hộ đã thấu hiểu tường tận đất đai nơi này.\r\n\r\nTừng nốt hương mang vị mặn, đắng, chát, chua thanh hay ngọt ngào,... tất cả hoà quyện tạo thành những bản sắc khác biệt trong mỗi ngụm cà phê.\r\n\r\nBằng việc cho ra đời sản phẩm Cà phê rang xay Peak Flavor – Hương thơm đỉnh cao lưu giữ trọn vẹn hương thơm tinh tế đặc trưng của cà phê Arabica Cầu Đất và Robusta Đăk Nông. Với sự hòa trộn nhiều cung bậc giữa hương và vị, Cà phê rang xay Sokoshop sẽ mang đến cho bạn một ngày mới tràn đầy cảm hứng.\r\n\r\n*Sản phẩm thích hợp để uống cà phê sữa nóng/đá.', 'Thưởng Thức Tại Nhà', 0),
 ('pro29', 'Cà Phê Rich Finish Gu Đậm Tinh Tế (350G)', 90000, 20, 40000, 'images/RichFinish.jpg', 'Cà phê rang xay Rich Finish - Gu đậm tinh tế', 'Sokoshop tin rằng, mỗi hạt cà phê đều mang một cá tính riêng biệt, không thể nào hòa lẫn. \r\n\r\n\"Cá tính\" rất riêng ấy được tạo nên bởi vùng thổ nhưỡng mà cây được vun trồng, bởi bàn tay người nông hộ đã thấu hiểu tường tận đất đai nơi này.\r\n\r\nTừng nốt hương mang vị mặn, đắng, chát, chua thanh hay ngọt ngào,... tất cả hoà quyện tạo thành những bản sắc khác biệt trong mỗi ngụm cà phê.\r\n\r\nBằng việc cho ra đời sản phẩm Cà phê rang xay Rich Finish – Công thức cà phê được phối trộn hoàn hảo giữa Robusta và Arabica, Sokoshop hiểu rằng ly cà phê ngon phải đậm đà, rõ vị từ cái chạm đầu tiên đến hậu vị vương vấn. Cà phê rang xay Rich Finish mang đến những ly cà phê đậm, thơm, hương vị tinh tế giúp bạn bắt đầu ngày mới đầy năng lượng.\r\n\r\n*Sản phẩm thích hợp để uống cà phê đen nóng/đá.', 'Thưởng Thức Tại Nhà', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_in_order`
---
-
-CREATE TABLE `product_in_order` (
-  `PID` char(5) NOT NULL,
-  `ORDER_ID` int NOT NULL,
-  `QUANTITY` int DEFAULT NULL,
-  `NOTE` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cost`
---
-ALTER TABLE `cost`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `custommer`
---
-ALTER TABLE `custommer`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`ID_ORDER`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`PID`);
-
---
--- Indexes for table `product_in_order`
---
-ALTER TABLE `product_in_order`
-  ADD PRIMARY KEY (`PID`,`ORDER_ID`),
-  ADD KEY `ORDER_ID` (`ORDER_ID`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `product_in_order`
---
-ALTER TABLE `product_in_order`
-  ADD CONSTRAINT `product_in_order_ibfk_1` FOREIGN KEY (`PID`) REFERENCES `product` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_in_order_ibfk_2` FOREIGN KEY (`ORDER_ID`) REFERENCES `order` (`ID_ORDER`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
