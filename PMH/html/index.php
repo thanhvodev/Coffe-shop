@@ -21,6 +21,7 @@
               WHERE `product_in_order`.`PID` = `product`.`PID` AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER` AND `order`.`ID_ORDER` = ' . (int)$id .
               ' GROUP BY `product_in_order`.`ORDER_ID`) AS abc)
         WHERE `order`.`ID_ORDER` = ' . (int)$id;
+        mysqli_query($db, $query);
     }
     for($i = 0; $i < 383; $i++){
         update_payment_total($i + 1);
