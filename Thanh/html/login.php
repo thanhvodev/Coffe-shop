@@ -32,8 +32,8 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <a href="top-product.html" class="text-decoration-none text-white btn btn-dark float-end"
-                                role="button">Đăng nhập</a>
+                            <a href="top-product.php" class="text-decoration-none text-white btn btn-dark float-end" role="button">Đăng
+                                nhập</a>
                         </div>
                     </form>
                     <!-- <hr class="mt-4">
