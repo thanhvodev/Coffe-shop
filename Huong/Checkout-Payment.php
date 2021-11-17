@@ -34,7 +34,9 @@ $customer = mysqli_fetch_assoc($customer);
     <title>Thanh toán</title>
     <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
     <link rel="stylesheet" href="Checkout-General.css">
-    <script src="Checkout.js"></script>
+    <!-- <script src="Checkout.js"></script> -->
+    
+    <script src="upload.js"></script>
 </head>
 
 <body>
@@ -77,9 +79,18 @@ $customer = mysqli_fetch_assoc($customer);
                 onclick="checkbyATMcard();">
             <label for="byATMcard">Thanh toán bằng thẻ ngân hàng</label><br><br>
             <!-- appear if byATMcard is checked -->
+            &emsp;Quý khách vui lòng gửi chuyển khoản đủ tổng tiền cần thanh toán vào Ngân hàng ABC. <br> 
+         &emsp;Số tài khoản của cửa hàng: xxxxxxxxxxx <br><br>
+         &emsp;Sau khi chuyển khoản thành công, quý khách vui lòng chụp lại màn hình giao dịch và tải lên đây:<br><br>
             <div id="extension">
                 <p id="guide"></p>
-                <div id="uploadimg"></div>
+                <div id="uploadimg">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
+
+                </div>
             </div>
         </div>
         <div id="information">
@@ -114,6 +125,10 @@ $customer = mysqli_fetch_assoc($customer);
             <button class="footer-nav-btn" onclick="succeeded()">Đặt mua</button>
         </div>
     </div>
+
+
+
+
 </body>
 <footer>
     <div class="logoFooter">
