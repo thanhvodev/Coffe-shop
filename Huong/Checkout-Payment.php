@@ -1,3 +1,29 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sokoshop";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM `order` ORDER BY `ID_ORDER` DESC LIMIT 1;";
+$orders = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM `customer` WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`);";
+$customer = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+
+$order = mysqli_fetch_assoc($orders);
+$customer = mysqli_fetch_assoc($customer);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,27 +83,32 @@
             </div>
         </div>
         <div id="information">
-            <table>
+            <table id="info-table">
                 <tr>
                     <th>Thông tin giao hàng</th>
                 </tr>
                 <tr>
                     <td>
-                        <b>Họ tên khách hàng</b><br><br>
-                        <p>Số điện thoại: </p><br>
-                        <p>Địa chỉ: </p>
+                        <b>Họ tên khách hàng</b><br>
+                        <p><?php echo $customer["FULLNAME"]; ?></p>
+                        
+                        <b>Số điện thoại: </b>
+                        <p><?php echo $customer["PHONE_NO"]; ?></p>
+                        <b>Địa chỉ: </b><br>
+                        <?php echo $customer["NUMANDSTREET"],', ',$customer["DISTRICT"]; ?>
                     </td>
                 </tr>
             </table>
             <br><br><br><br>
-            <p><b>Tổng tiền cần thanh toán:</b></p>
+            <b>Tổng tiền cần thanh toán:</b>
+            &emsp;<b style="color: red; font-size:25px;"><?php echo $order["TOTAL"]; ?></b>
         </div>
     </div>
 
     <!-- navigationbar -->
     <div id="navigationbar">
         <div id="leftbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Addressinfo.html'">Quay lại</button>
+            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Addressinfo.php'">Quay lại</button>
         </div>
         <div id="rightbtn">
             <button class="footer-nav-btn" onclick="succeeded()">Đặt mua</button>

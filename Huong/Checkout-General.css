@@ -128,6 +128,7 @@
 #billinfo {
   padding-left: 15%;
   height: 400px;
+  overflow-y: scroll;
 }
 
 #addressinfo {
@@ -171,7 +172,7 @@
   width: 50%;
 }
 
-table {
+#info-table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 60%;
@@ -192,31 +193,21 @@ tr:nth-child(odd) {
   background-color: #FFE4E1;
 }
 
-
-.logoFooter {
-  padding: 10px 30px;
-  font-size: 1.2em;
-  color: black;
-  font-weight: bold;
-}
-
-footer p {
-  font-weight: normal;
-  font-size: 0.8em;
-}
-
 footer {
-  padding: 15px;
-  color: black;
-  text-align: center;
   background-color: #FFE4E1;
+  padding: 1.5%;
+  text-align: center;
 }
 
-footer a {
-  text-decoration: none;
+.bill-title {
+  font-size: 18px;
 }
 
-footer a:hover {
-  text-decoration: underline;
+#table-bill {
+  width: 80%;
+}
+
+.center-col {
+  text-align: center;
 }
 /*# sourceMappingURL=Checkout-General.css.map */

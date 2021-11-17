@@ -42,10 +42,10 @@
     </div>
     <!-- addressinfo -->
     <div id="addressinfo">
-        <form>
+        <form action="savecustomerinfo.php" method="get">
             <label><b>Thông tin khách hàng: </b></label><br><br><br>
             &emsp;&emsp;&emsp;<label for="fullname">Họ và tên: </label>&emsp;&emsp;&emsp;&emsp;&emsp;
-            <input type="text" id="fullname" name="fname"><br><br><br>
+            <input type="text" id="fullname" name="fullname"><br><br><br>
             &emsp;&emsp;&emsp;<label for="phonenumber">Số điện thoại:</label>&emsp;&emsp;&emsp;&emsp;
             <input type="text" id="phonenumber" name="phonenumber"><br><br><br>
             <label><b>Địa chỉ nhận hàng: </b></label><br><br><br>
@@ -53,19 +53,23 @@
             <input type="text" id="numberandstreet" name="numberandstreet"><br><br><br>
             &emsp;&emsp;&emsp;<label for="district">Quận:</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <input type="text" id="district" name="district"><br><br><br>
-
+            <b>Quý khách vui vòng nhấn vào nút lưu thông tin trước khi sang bước tiếp theo!</b>
+            <br><br>
+            <input type="submit" value="Lưu thông tin">
         </form>
     </div>
 
     <!-- navigationbar -->
     <div id="navigationbar">
         <div id="leftbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Vadidate.html'">Quay lại</button>
+            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Vadidate.php'">Quay lại</button>
         </div>
         <div id="rightbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Payment.html'">Tiếp theo</button>
+            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Payment.php'">Tiếp theo</button>
         </div>
     </div>
+
+
 </body>
 <footer>
     <div class="logoFooter">
