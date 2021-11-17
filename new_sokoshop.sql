@@ -66,7 +66,7 @@ CREATE TABLE `product_in_order` (
   `QUANTITY` int DEFAULT NULL,
   `NOTE` text,
   `TOTAL` int DEFAULT 0,
-  FOREIGN KEY (`PID`) REFERENCES `product` (`PID`),
+  -- FOREIGN KEY (`PID`) REFERENCES `product` (`PID`),
   FOREIGN KEY (`ID_ORDER`) REFERENCES `order` (`ID_ORDER`)
 );
 
