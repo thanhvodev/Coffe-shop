@@ -42,6 +42,24 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "sokoshop";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $sql = "UPDATE `order` SET `LINKBILL` = '$target_file', `STATE` = 1 WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`);";
+    $orders = mysqli_query($conn, $sql);
+
+    mysqli_close($conn);
+
+
   } else {
     //echo "Sorry, there was an error uploading your file.";
   }

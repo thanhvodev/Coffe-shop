@@ -92,7 +92,7 @@ $temp = mysqli_fetch_assoc($order);
             <?php } ?>
         </table>
         <b style="padding-left: 40%; font-size:25px">TỔNG CỘNG:</b> 
-        &nbsp;&nbsp; <b style="color: red; font-size:25px;"><?php echo $temp["TOTAL"]?></b>
+        &nbsp;&nbsp; <b style="color: red; font-size:25px;"><?php echo $temp["TOTAL"]?> VND</b>
     </div>
 
     <!-- navigationbar -->

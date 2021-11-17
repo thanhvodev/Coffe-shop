@@ -4,10 +4,11 @@ function checkbyATMcard(){
          cần thanh toán vào Ngân hàng ABC. <br> \
          &emsp;Số tài khoản của cửa hàng: xxxxxxxxxxx <br><br>\
          &emsp;Sau khi chuyển khoản thành công, quý khách vui lòng chụp lại màn hình giao dịch và tải lên đây:<br><br>";
-         document.getElementById('uploadimg').innerHTML = " <form method=\"post\" enctype=\"multipart/form-data\"> \
-         <input type=\"file\" name=\"files[]\" multiple> \
-         <input type=\"submit\" value=\"Upload File\" name=\"submit\"> \
-        </form>";
+         document.getElementById('uploadimg').innerHTML =`                 
+         <form action="upload.php" method="post" enctype="multipart/form-data">
+         <input type="file" name="fileToUpload" id="fileToUpload">
+         <input type="submit" value="Upload Image" name="submit">
+     </form>`;
     }
 }
 function checkbycash(){

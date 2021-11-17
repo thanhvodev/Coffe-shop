@@ -12,7 +12,7 @@ $servername = "localhost";
 
         $sql = "SELECT * FROM `customer` WHERE `ID_ORDER`=(SELECT MAX(`ID_ORDER`) FROM `order`);";
         $cus = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($cart) == 0) {
+        if (mysqli_num_rows($cus) == 0) {
             $sql = "SELECT MAX(`ID_ORDER`) AS `MAX` FROM `order`;";
             $max = mysqli_query($conn, $sql);
             $max = mysqli_fetch_assoc($max);
