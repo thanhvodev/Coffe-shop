@@ -105,9 +105,44 @@ function clickNext(n){
     }
     return "";
 }
-function call_clickNext(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee){
+function call_clickNext(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee, start, end){
     old_element.style.backgroundColor = "white";
     element.style.backgroundColor = "rgb(240, 218, 218)";
+    console.log(".................");
+    console.log(start.value);
+    console.log(end.value);
+    console.log(element.value);
+    console.log(".................");
+    if(end.value > -1 && start.value > -1){
+        if(element.value >= end.value){
+            var num = end.value;
+            end.value += 9;
+            if(end.value > parentNode.childNodes.length - 2) end.value = parentNode.childNodes.length - 2;
+            for(var i = 0; i < end.value - num; i++){
+                parentNode.childNodes[start.value + i].style.display = "none";
+                parentNode.childNodes[num + i + 1].style.display = "block";
+            }
+            start.value += (end.value - num);
+            console.log(".................");
+            console.log(start.value);
+            console.log(end.value);
+            console.log(".................");
+        }
+        else if(element.value <= start.value){
+            var num = start.value;
+            start.value -= 9;
+            if(start.value <= 1) start.value = 1;
+            for(var i = 0; i < num - start.value; i++){
+                parentNode.childNodes[end.value - i].style.display = "none";
+                parentNode.childNodes[num - i - 1].style.display = "block";
+            }
+            end.value -= (num - start.value);
+            console.log(".................");
+            console.log(start.value);
+            console.log(end.value);
+            console.log(".................");
+        }
+    }
     parentNode.childNodes[0].value = element.value - 1;
     parentNode.childNodes[parentNode.childNodes.length - 1].value = element.value + 1;
     table.innerHTML = get_innerHTML(get_Head(listTitle), get_Body(Dateformat(listTime[element.value - 1]), listBill[element.value-1], Priceformat(listRevenue[element.value - 1]), Priceformat(listFee[element.value - 1])));
@@ -118,9 +153,9 @@ function call_clickNext(old_element, element, parentNode, table, listTitle, list
     }
     return element;
 }
-function call_clickNode(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee){
+function call_clickNode(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee, start, end){
     if(element.value >= 1 && element.value < parentNode.childNodes.length - 1){
-        return call_clickNext(old_element, parentNode.childNodes[element.value], parentNode, table, listTitle, listTime, listBill, listRevenue, listFee);    
+        return call_clickNext(old_element, parentNode.childNodes[element.value], parentNode, table, listTitle, listTime, listBill, listRevenue, listFee, start, end);    
     }
     return old_element;
 }
@@ -130,7 +165,7 @@ function option(element){
     element.forEach(element => {str += "<option value=\"" + element + "\">"; });
     return str;
 }
-function getlist(listTime, listBill, listRevenue, listFee){ 
+function getlist(listTime, listBill, listRevenue, listFee, start, end){ 
     var payment = document.getElementsByClassName("payment");
     var cost = document.getElementsByClassName("cost");
     if(payment != undefined){
@@ -156,10 +191,10 @@ function getlist(listTime, listBill, listRevenue, listFee){
         for(var i = 0, len = payment.length; i < len; i++){
             cost[0].remove();
         }
-        displayall(listTime, listRevenue, listFee, listBill);
+        displayall(listTime, listRevenue, listFee, listBill, start, end);
     }
 }
-function getTime(element){
+function getTime(element, start, end){
     var timer = element.parentNode.parentNode.getElementsByTagName("input");
     for(var i = 0; i < timer.length; i++){
         if(timer[i].value == '') {
@@ -183,11 +218,11 @@ function getTime(element){
             return;
         }
     }
-    search(String(timer[0].value), String(timer[1].value));
+    search(String(timer[0].value), String(timer[1].value), end, start);
     timer[0].value = "";
     timer[1].value = "";
 }
-function search(time1, time2) {
+function search(time1, time2, start, end) {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
         var listTime = [];
@@ -195,7 +230,7 @@ function search(time1, time2) {
         var listRevenue = [];
         var listFee = [];
       document.getElementById("demo").innerHTML = this.responseText;
-      getlist(listTime, listBill, listRevenue, listFee);
+      getlist(listTime, listBill, listRevenue, listFee, start, end);
     }
     xmlhttp.open("GET", "./function/search.php?q1=" + time1 +"&q2=" + time2);
     xmlhttp.send();
@@ -250,22 +285,25 @@ function Dateformat(element){
     }
     return list;
 }
+function getFormat(element){
+    let nodestr = "";
+    for(var j = element.length; j > 3; j -= 3){
+        nodestr = "," + element[j-1] + element[j-2] + element[j-3] + nodestr;
+    }
+    if (element .length % 3 == 0){
+        nodestr = element[0] + element[1] + element[2] + nodestr;
+    }
+    else if(element.length % 3 == 2){
+        nodestr = element[0] + element[1] + nodestr;
+    }
+    else nodestr = element[0] + nodestr;
+    return nodestr;
+}
 function Priceformat(element){
     var list = [];
     for(var i = 0; i < element.length; i++){
         var temp = String(element[i]);
-        let nodestr = "";
-        for(var j = temp.length; j > 3; j -= 3){
-            nodestr = "," + temp[j-1] + temp[j-2] + temp[j-3] + nodestr;
-        }
-        if (temp .length % 3 == 0){
-            nodestr = temp[0] + temp[1] + temp[2] + nodestr;
-        }
-        else if(temp.length % 3 == 2){
-            nodestr = temp[0] + temp[1] + nodestr;
-        }
-        else nodestr = temp[0] + nodestr;
-        list.push(nodestr);
+        list.push(getFormat(temp));
     }
     return list;
 }
@@ -401,16 +439,18 @@ function Table_option(table, list_Title, listTime, listBill, listRevenue, listFe
         list_tr[index].getElementsByTagName("td")[3].onclick = function(){display_modal_cost(list_tr[index])};
     }
 }
-function next_click_option(next_click, table, lengthnext, list_Title, listTime, listBill, listRevenue, listFee){ 
+function next_click_option(next_click, table, lengthnext, list_Title, listTime, listBill, listRevenue, listFee, start, end){ 
     next_click.innerHTML = clickNext(lengthnext);
     if(next_click.childNodes.length > 12){
         for (let index = 0; index < 11; index++) {
             next_click.childNodes[index].style.display = "block";
         }
-        for (let index = 11; index < next_click.length - 1; index++) {
+        for (let index = 11; index < next_click.childNodes.length - 1; index++) {
             next_click.childNodes[index].style.display = "none";
         }
         next_click.childNodes[next_click.childNodes.length - 1].style.display = "block";
+        start.value = 1;
+        end.value = 10;
     }
     var next_clicked_button = next_click.childNodes[1];
     if(next_click.childNodes.length > 1){
@@ -419,22 +459,22 @@ function next_click_option(next_click, table, lengthnext, list_Title, listTime, 
             next_click.childNodes[index].value = index;
             next_click.childNodes[index].addEventListener("click", function(){
                                         next_clicked_button =  call_clickNext(next_clicked_button, next_click.childNodes[index],  next_click, table, list_Title, 
-                                                                            listTime, listBill, listRevenue, listFee)
+                                                                            listTime, listBill, listRevenue, listFee, start, end);
                                         });
         }
         next_click.childNodes[0].value = 0;
         next_click.childNodes[0].addEventListener("click", function(){ next_clicked_button = call_clickNode(next_clicked_button, next_click.childNodes[0], next_click, table,
-                                                                                        list_Title, listTime, listBill, listRevenue, listFee)
+                                                                                        list_Title, listTime, listBill, listRevenue, listFee, start, end);
                                                                                     });
         next_click.childNodes[next_click.childNodes.length - 1].value = 2;
         next_click.childNodes[next_click.childNodes.length - 1].addEventListener("click", function(){next_clicked_button = call_clickNode(next_clicked_button, next_click.childNodes[next_click.childNodes.length - 1], 
                                                                                                     next_click, table, list_Title, listTime, listBill, 
-                                                                                                    listRevenue, listFee)
+                                                                                                    listRevenue, listFee, start, end);
                                                                                                 });
     }
 }
 //------------------------------------------------//
-function displayall(listTime, listRevenue, listFee, listBill){
+function displayall(listTime, listRevenue, listFee, listBill, start, end){
     if(listTime != []){
         var listTime_month = getDay_inMonth(listTime);
         var listRevenue_month = Sum_money(listRevenue, listTime_month[1]);
@@ -445,14 +485,12 @@ function displayall(listTime, listRevenue, listFee, listBill){
         var listRevenue_week = Sum_money(listRevenue, listTime_week[1]);
         var listFee_week = Sum_money(listFee, listTime_week[1]);
         var listBill_week = getBIll_inMonth(listBill, listTime_week[1]);
-        
-
         const listTitle = ["Ngày", "Số hóa đơn", "Doanh số (VND)", "Chi phí (VND)"];
         //  Default table
         var table = document.getElementById("table");
         var next_click = document.getElementById("next");
         Table_option(table, listTitle, listTime_week[1][0], listBill_week[0], listRevenue_week[1][0], listFee_week[1][0]);
-        next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1]);
+        next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1], start, end);
         //  Draw chart
         var chartLine = document.getElementById('chartLine');
         Drawline_option("Tháng", chartLine, listTime_month[0], listRevenue_month[0], listFee_month[0], label_Month);
@@ -468,13 +506,17 @@ function displayall(listTime, listRevenue, listFee, listBill){
 
         // Display table
         var displayTable = table.parentNode.querySelectorAll('li');
-        displayTable[0].childNodes[0].addEventListener("click", function(){    
+        displayTable[0].childNodes[0].addEventListener("click", function(){
+                var start = {value:  -1};
+                var end = {value: -1};
                 Table_option(table, listTitle, listTime_week[1][0], listBill_week[0], listRevenue_week[1][0], listFee_week[1][0]);
-                next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1]);
+                next_click_option(next_click, table, listTime_week[0].length, listTitle, listTime_week[1], listBill_week, listRevenue_week[1], listFee_week[1], start, end);
             });
-        displayTable[1].childNodes[0].addEventListener("click", function(){    
+        displayTable[1].childNodes[0].addEventListener("click", function(){
+                var start = {value:  -1};
+                var end = {value: -1};  
                 Table_option(table, listTitle, listTime_month[1][0], listBill_month[0], listRevenue_month[1][0], listFee_month[1][0]);
-                next_click_option(next_click, table, listTime_month[0].length, listTitle, listTime_month[1], listBill_month, listRevenue_month[1], listFee_month[1]);
+                next_click_option(next_click, table, listTime_month[0].length, listTitle, listTime_month[1], listBill_month, listRevenue_month[1], listFee_month[1], start, end);
             });
     }
 }
@@ -485,6 +527,12 @@ function display_modal_cost(parentNode){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
         modal_content.innerHTML = this.responseText;
+        var money = modal_content.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        for(var i = 0; i < money.length; i++){
+            money[i].getElementsByTagName("td")[2].innerText = getFormat(money[i].getElementsByTagName("td")[2].innerText);
+            money[i].getElementsByTagName("td")[4].innerText = getFormat(money[i].getElementsByTagName("td")[4].innerText);
+        }
+        modal_content.getElementsByTagName("h3")[0].innerText = "Tổng cộng: " + getFormat((modal_content.getElementsByTagName("h3")[0].innerText).split(" ")[2].split("(")[0]) + "(VND)";
         modal_content.parentNode.style.display = "block";
         modal_content.getElementsByTagName("span")[0].onclick = function(){modal_content.parentNode.style.display = "none";}
     }
@@ -492,12 +540,15 @@ function display_modal_cost(parentNode){
     xmlhttp.send();
 }
 //--------------------------------//
-//ch fix next click
 // hiện bảng bill
 
 getlistType();
 var click_form = document.getElementsByClassName("click");
-click_form[0].addEventListener("click", function(){ getTime(click_form[0]);});
+var start = {value:  -1};
+var end = {value: -1};
+console.log(start.value);
+console.log(end.value);
+click_form[0].addEventListener("click", function(){ getTime(click_form[0], start, end);});
 click_form[1].addEventListener("click", function(){ addCost(click_form[1]);});
 var modal = document.getElementById("myModal");
 window.onclick = function(event) {

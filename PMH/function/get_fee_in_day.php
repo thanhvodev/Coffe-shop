@@ -23,12 +23,12 @@
     $total = 0;
     $i = 1;
     get_fee_in_day($date);
-    echo '<div class="modal-header"><h2>Ngày ' . $getdate . '</h2><span class="close">&times;</span></div><div class="modal-body">' . '<table class="table table-striped"><thead><tr><th>Số thứ tự</th><th>Nội dung</th><th>Đơn giá</th><th>Số lượng</th><th>Tổng cộng</th></thead><tbody>';
+    echo '<div class="modal-header"><h2>Ngày ' . $getdate . '</h2><span class="close">&times;</span></div><div class="modal-body">' . '<table class="table table-striped"><thead><tr><th>Số thứ tự</th><th>Nội dung</th><th>Đơn giá(VND)</th><th>Số lượng</th><th>Tổng cộng(VND)</th></thead><tbody>';
     foreach ($cost as $cos) {
         $total += $cos['total'];
         echo "<tr><td>#" . $i . "</td><td>" . $cos['decs'] . "</td><td>" . $cos['price'] . "</td><td>" . $cos['number'] . "</td><td>" . $cos['total'] . "</td></tr>";
         $i += 1;
     }
-    echo '</tbody></table></div><div class="modal-footer"><h3>Tổng cộng: ' . $total . '</h3></div>';
+    echo '</tbody></table></div><div class="modal-footer"><h3>Tổng cộng: ' . $total . '(VND)</h3></div>';
     mysqli_close($db);
 ?>

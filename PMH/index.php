@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<?php echo '
 <head>
     <!--Info page-->
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <meta name="author" content="Phạm Minh Hiếu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lí | Doanh số cửa hàng</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../IMAGE/logo.svg">
+    <link rel="shortcut icon" type="image/x-icon" href="../IMAGE/logo.svg" />
     <!-- link css file -->
     <link href="./css/style.css" rel="stylesheet" type="text/css">
     <!-- link icon -->
@@ -18,11 +18,9 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
     </script>
-</head>';
-?>
-
+</head>
 <body>
-    <?php echo '
+    <?php echo' 
     <div class="row nav navHome">
         <div class="col-md-3 col-sm-3 col-12 logo">
             <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
@@ -36,7 +34,7 @@
         </div>
 
         <div class="col-3 cart">
-            <a href="../../Tan_Toan/"><button type="button" class="btn btn-light cartButton">Đăng xuất <i
+            <a href="../Tan_Toan/"><button type="button" class="btn btn-light cartButton">Đăng xuất <i
                   class="fa fa-sign-out"></i></button></a>
           </div>
     </div>';
@@ -52,16 +50,16 @@
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Bắt đầu:</div>
-                                    <div class="col-8"><input type="date" name="time_start"></div>
+                                    <div class="col-8"><input type="date" name="time_start" ></div>
                                 </div>
                             </div>
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Kết thúc:</div>
-                                    <div class="col-8"><input type="date" name="time_end"></div>
+                                    <div class="col-8"><input type="date" name="time_end" ></div>
                                 </div>
                             </div>
-                            <button name="btnSearch" class="btn btn-secondary col-4 mt-1 mb-2 click"><i class="fas fa-search"></i> Tìm kiếm</button>
+                            <button name="btnSearch" class="btn btn-secondary col-5 mt-1 mb-2 click" ><i class="fas fa-search"></i> Tìm kiếm</button>
                         </div>
                     </form>
 
@@ -71,13 +69,13 @@
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Ngày:</div>
-                                    <div class="col-8"><input type="date" name="time"></div>
+                                    <div class="col-8"><input type="date" name="time" ></div>
                                 </div>
                             </div>
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Loại chi phí:</div>
-                                    <div class="col-8"><input type="text" list="datatype" name="type">
+                                    <div class="col-8"><input type="text" list="datatype" name="type" >
                                         <datalist id="datatype">
                                         </datalist>
                                     </div>
@@ -86,18 +84,18 @@
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Đơn giá:</div>
-                                    <div class="col-8"><input type="number" name="price"></div>
+                                    <div class="col-8"><input type="number" name="price" ></div>
                                 </div>
                             </div>
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Số lượng:</div>
-                                    <div class="col-8"><input type="number" name="number"></div>
+                                    <div class="col-8"><input type="number" name="number" ></div>
                                 </div>
                             </div>
                             <button name="btnSearch" class="btn btn-secondary col-4 mt-1 mb-2 click">Thêm</button>
                         </div>
-                    </form>
+                    </form >
 
                     <div id="demo" hidden></div>
                 </div>
@@ -117,7 +115,7 @@
                         <hr>
                         <div id="chartLine"></div>
                     </div>
-
+                    
                     <div class="col-12 mt-3 shadow p-3">
                         <div class="d-flex justify-content-between">
                             <h2>Doanh số cửa hàng <span></span></h2>
@@ -126,7 +124,7 @@
                                 <li><a class="dropdown-item" href="#">Tuần</a></li>
                                 <li><a class="dropdown-item" href="#">Tháng</a></li>
                             </ul>
-                        </div>
+                        </div>  
                         <div id="table">
                         </div>
                         <div id="next" class="d-flex justify-content-center">
@@ -136,29 +134,22 @@
             </div>
         </div>
     </div>
-    <?php echo '
+<?php echo'
     <footer>
         <div class="logoFooter">
           <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
           <img id="logo" src="./imgs/logo.svg" alt="Logo"> Sokoshop
         </div>
     </footer>';
-    ?>
+?>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
     </div>
-    <div id="notice"></div>
-    <script src=<?php echo "./js/myscript.js"; ?> type="text/javascript"></script>
+</div>
+<div id="notice"></div>
+    <script src=<?php echo "./js/myscript.js";?> type="text/javascript"></script>
 </body>
 
 </html>
