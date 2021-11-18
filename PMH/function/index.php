@@ -26,7 +26,11 @@
     for($i = 0; $i < 12384; $i++){
         update_payment_total($i + 1);
     }
-
+    /*
+    for($i = 0; $i < 383; $i++){
+        update_payment_total($i + 1);
+    }
+*/
     echo "ok";
 
     mysqli_close($db);
