@@ -26,11 +26,11 @@ mysqli_close($conn);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sản phẩm hàng đầu</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../images/logo.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../IMAGE/logo.svg" />
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -42,18 +42,18 @@ mysqli_close($conn);
         <!-- Nav Bar -->
         <div class="row nav navHome">
             <div class="col-md-3 col-sm-3 col-12 logo">
-                <img id="logo" src="../images/logo.svg" alt="Logo"> Sokoshop
+                <img id="logo" src="../../IMAGE/logo.svg" alt="Logo"> Sokoshop
             </div>
 
             <div class="col-md-6 col-sm-6 col-12 listNav">
                 <ul>
                     <li><a href="#contact" class="active">Menu</a></li>
-                    <li><a href="../../PMH/html/boss_view.php">Doanh thu</a></li>
+                    <li><a href="../../PMH/">Doanh thu</a></li>
                 </ul>
             </div>
 
             <div class="col-3 cart">
-                <a href="../../Tan_Toan/coffee.html"><button type="button" class="btn btn-light cartButton">Đăng xuất <i class="fa fa-sign-out"></i></button></a>
+                <a href="../../Tan_Toan/"><button type="button" class="btn btn-light cartButton">Đăng xuất <i class="fa fa-sign-out"></i></button></a>
             </div>
         </div>
 
@@ -65,8 +65,8 @@ mysqli_close($conn);
                         <ul>
                             <li><a href="./top-product.php">Sản phẩm hàng đầu</a></li>
                             <li><a href="./Coffe.php">Cà phê</a></li>
-                            <li><a href="./Juice-Tea.php">Trà trái cây - trà sữa</a></li>
-                            <li><a class="active" href="#">Đá xay - Choco - Matcha</a></li>
+                            <li><a class="active" href="#">Trà trái cây - trà sữa</a></li>
+                            <li><a href="./Choco-Matcha.php">Đá xay - Choco - Matcha</a></li>
                             <li><a href="./AtHome.php">Thưởng thức tại nhà</a></li>
                         </ul>
                     </div>
@@ -147,7 +147,7 @@ mysqli_close($conn);
                         <?php
                         if (mysqli_num_rows($result) > 0) { ?>
                             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                                <?php if ($row["CAT_NAME"] == "Đá Xay - Choco - Matcha") { ?>
+                                <?php if ($row["CAT_NAME"] == "Trà Trái Cây - Trà Sữa") { ?>
                                     <div class="col-md-4 col-sm-6 col-lg-offset-1 col-6">
                                         <div class="card">
                                             <div class="card-body">
@@ -253,7 +253,7 @@ mysqli_close($conn);
     <footer>
         <div class="logoFooter">
             <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-            <img id="logo" src="../images/logo.svg" alt="Logo"> Sokoshop
+            <img id="logo" src="../../IMAGE/logo.svg" alt="Logo"> Sokoshop
         </div>
     </footer>
 

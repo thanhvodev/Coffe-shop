@@ -34,7 +34,7 @@
                 <li class="nav-item"><a class="nav-link active" href="#">Cửa hàng</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Theo dõi</a></li>
-                <li class="nav-item"><a class="nav-link" href="../Thanh/html/login.html">Quản lý</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Thanh/login.php">Quản lý</a></li>
             </ul>
             <form class="d-flex cart">
                 <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal"
@@ -55,7 +55,7 @@
                 <div class="category">
                     <h4><i class="material-icons">format_list_bulleted</i> Danh mục sản phẩm</h4>
                     <ul>
-                        <li><a href="top_products.php">Sản phẩm hàng đầu</a></li>
+                        <li><a href="index.php">Sản phẩm hàng đầu</a></li>
                         <li><a href="coffee.php">Cà phê</a></li>
                         <li><a href="tea.php">Trà trái cây - trà sữa</a></li>
                         <li><a class="active">Đá xay - Choco - Matcha</a></li>
@@ -314,7 +314,7 @@
                 <div class="modal-footer" id="navigationbar">
                     <div id="rightbtn" class="cartButton">
                         <button class="btn btn-danger order"
-                            onclick="window.location.href='../Huong/Vadidate.html'">Thanh toán</button>
+                            onclick="window.location.href='../Huong/Checkout-Vadidate.php'">Thanh toán</button>
                     </div>
                 </div>
             </div>

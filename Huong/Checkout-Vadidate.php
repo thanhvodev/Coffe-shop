@@ -40,7 +40,7 @@ $temp = mysqli_fetch_assoc($order);
         <img id="logoimg" src="image/logo.svg" alt="logo shop">
         <p id="logotext"><b>Sokoshop</b></p>
         <div id="backhome"> </div>
-        <button id="home" onclick="window.location.href='../Tan_Toan/coffee.html'">Quay lại cửa hàng</button>
+        <button id="home" onclick="window.location.href='../Tan_Toan/'">Quay lại cửa hàng</button>
     </div>
 
     <!-- progressbar -->
@@ -98,7 +98,7 @@ $temp = mysqli_fetch_assoc($order);
     <!-- navigationbar -->
     <div id="navigationbar">
         <div id="leftbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='../Tan_Toan/coffee.html'">Quay lại</button>
+            <button class="footer-nav-btn" onclick="window.location.href='../Tan_Toan/'">Quay lại</button>
         </div>
         <div id="rightbtn">
             <button class="footer-nav-btn" onclick= "my_function()">Tiếp theo</button>

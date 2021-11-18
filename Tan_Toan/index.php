@@ -34,7 +34,7 @@
                 <li class="nav-item"><a class="nav-link active" href="#">Cửa hàng</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Theo dõi</a></li>
-                <li class="nav-item"><a class="nav-link" href="../Thanh/html/login.html">Quản lý</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Thanh/login.php">Quản lý</a></li>
             </ul>
             <form class="d-flex cart">
                 <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal"
@@ -304,7 +304,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
             <div class="modal-footer" id="navigationbar">
             <div id="rightbtn" class="cartButton">
-                <button class="btn btn-danger order" onclick="window.location.href='../Huong/Vadidate.html'">Thanh toán</button>
+                <button class="btn btn-danger order" onclick="window.location.href='../Huong/Checkout-Vadidate.php'">Thanh toán</button>
             </div>
             </div>
         </div>

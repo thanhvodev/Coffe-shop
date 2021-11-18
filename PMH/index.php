@@ -30,13 +30,13 @@
 
         <div class="col-md-6 col-sm-6 col-12 listNav">
             <ul>
-                <li><a href="../..//Thanh/html/top-product.html">Menu</a></li>
+                <li><a href="../..//Thanh/top-product.php">Menu</a></li>
                     <li><a href=" #" class="active">Doanh thu</a></li>
             </ul>
         </div>
 
         <div class="col-3 cart">
-            <a href="../../Tan_Toan/coffee.html"><button type="button" class="btn btn-light cartButton">Đăng xuất <i
+            <a href="../../Tan_Toan/"><button type="button" class="btn btn-light cartButton">Đăng xuất <i
                   class="fa fa-sign-out"></i></button></a>
           </div>
     </div>';

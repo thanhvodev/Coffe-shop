@@ -18,8 +18,8 @@
         $query = 'UPDATE `order`
         SET `order`.`TOTAL` = (SELECT abc.`sum` FROM (SELECT `order`.`ID_ORDER` AS `id`, SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `sum` 
               FROM `order`, `product_in_order`, `product` 
-              WHERE `product_in_order`.`PID` = `product`.`PID` AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER` AND `order`.`ID_ORDER` = ' . (int)$id .
-              ' GROUP BY `product_in_order`.`ORDER_ID`) AS abc)
+              WHERE `product_in_order`.`PID` = `product`.`PID` AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER` AND `order`.`ID_ORDER` = ' . (int)$id .
+              ' GROUP BY `product_in_order`.`ID_ORDER`) AS abc)
         WHERE `order`.`ID_ORDER` = ' . (int)$id;
         if(mysqli_query($db, $query) === TRUE){
             echo "ok";
@@ -35,7 +35,7 @@
                             SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
                     FROM    `order`, `product_in_order`, `product` 
                     WHERE   `product_in_order`.`PID` = `product`.`PID` 
-                            AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER`
+                            AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER`
                     GROUP BY `order`.`DTIME` 
                     ORDER BY `order`.`DTIME` ASC';   
         $stmt = mysqli_query( $db, $query);
@@ -50,7 +50,7 @@
                             SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
                     FROM    `order`, `product_in_order`, `product` 
                     WHERE   `product_in_order`.`PID` = `product`.`PID` 
-                            AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER`
+                            AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER`
                             AND `order`.`DTIME` >= \"". $time_start ."\"
                             AND `order`.`DTIME` <= \"". $time_end . "\"
                     GROUP BY `order`.`DTIME` 

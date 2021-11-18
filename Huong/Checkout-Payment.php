@@ -46,7 +46,7 @@ $customer = mysqli_fetch_assoc($customer);
         <img id="logoimg" src="image/logo.svg" alt="logo shop">
         <p id="logotext"><b>Sokoshop</b></p>
         <div id="backhome"> </div>
-        <button id="home" onclick="window.location.href='../Tan_Toan/coffee.html'">Quay lại cửa hàng</button>
+        <button id="home" onclick="window.location.href='../Tan_Toan/'">Quay lại cửa hàng</button>
     </div>
 
     <!-- progressbar -->
@@ -146,7 +146,7 @@ $customer = mysqli_fetch_assoc($customer);
         Đơn hàng của bạn đang được sử lý. Hãy để ý điện thoại! Nhân viên cửa hàng sẽ gọi điện cho bạn để xác nhận. 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='../Tan_Toan/coffee.html'">Tiếp tục vào cửa hàng</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='../Tan_Toan/'">Tiếp tục vào cửa hàng</button>
       </div>
     </div>
   </div>

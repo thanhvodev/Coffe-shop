@@ -16,7 +16,7 @@
         <img id="logoimg" src="image/logo.svg" alt="logo shop">
         <p id="logotext"><b>Sokoshop</b></p>
         <div id="backhome"> </div>
-        <button id="home" onclick="window.location.href='../Tan_Toan/coffee.html'">Quay lại cửa hàng</button>
+        <button id="home" onclick="window.location.href='../Tan_Toan/'">Quay lại cửa hàng</button>
     </div>
 
     <!-- progressbar -->

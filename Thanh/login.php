@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+ <?php
+    if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["username"]) && !empty($_POST["password"])){
+        require_once("../index.php");
+        if($_POST["password"] === "admin" && $_POST["username"] === "admin"){
+            $usr = "admin";
+            $pwd = "admin";
+            header("location: ./top-product.php");
+        }
+        else header("location: ../Tan_Toan/");
+    }
+ ?>
+ 
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +27,7 @@
         <div class="row">
             <div class="col-md-4 offset-md-4">
                 <div class="login-form bg-light mt-4 p-4 shadow rounded">
-                    <form action="" method="" class="row g-3">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="row g-3">
                         <h4>Quản lý đăng nhập</h4>
                         <div class="col-12">
                             <label>Tài khoản</label>
@@ -32,8 +44,8 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <a href="top-product.php" class="text-decoration-none text-white btn btn-dark float-end" role="button">Đăng
-                                nhập</a>
+                            <!--a href="top-product.php" class="text-decoration-none text-white btn btn-dark float-end" role="button">Đăng nhập</a-->
+                            <button href="top-product.php" class="text-decoration-none text-white btn btn-dark float-end" role="button">Đăng nhập</button>
                         </div>
                     </form>
                     <!-- <hr class="mt-4">
