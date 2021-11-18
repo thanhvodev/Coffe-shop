@@ -26,7 +26,7 @@ mysqli_close($conn);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sản phẩm hàng đầu</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../IMAGE/logo.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="../IMAGE/logo.svg" />
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -42,13 +42,13 @@ mysqli_close($conn);
         <!-- Nav Bar -->
         <div class="row nav navHome">
             <div class="col-md-3 col-sm-3 col-12 logo">
-                <img id="logo" src="../../IMAGE/logo.svg" alt="Logo"> Sokoshop
+                <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
             </div>
 
             <div class="col-md-6 col-sm-6 col-12 listNav">
                 <ul>
                     <li><a href="#contact" class="active">Menu</a></li>
-                    <li><a href="../../PMH/">Doanh thu</a></li>
+                    <li><a href="../PMH/">Doanh thu</a></li>
                 </ul>
             </div>
 
@@ -253,7 +253,7 @@ mysqli_close($conn);
     <footer>
         <div class="logoFooter">
             <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-            <img id="logo" src="../../IMAGE/logo.svg" alt="Logo"> Sokoshop
+            <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
         </div>
     </footer>
 

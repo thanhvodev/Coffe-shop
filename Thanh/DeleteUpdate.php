@@ -60,3 +60,5 @@ if (isset($_GET['delete'])) {
 
     mysqli_close($conn);
 }
+
+header('location: top-product.php');

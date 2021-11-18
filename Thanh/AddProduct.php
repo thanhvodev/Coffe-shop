@@ -36,3 +36,5 @@ if (isset($_GET['submit'])) {
 
     mysqli_close($conn);
 }
+
+header('location: top-product.php');
