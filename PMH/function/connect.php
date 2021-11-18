@@ -5,7 +5,7 @@
     $password   = '';
     $dbName     = 'sokoshop';
     $check = true;
-
+    $payment = null;
     $db = mysqli_connect($serverName, $userName, $password, $dbName);
 
     if (!$db) {
@@ -26,24 +26,6 @@
         }
         else echo $query;
     }
-/*
-    function getPayments() {
-        global $db;
-        $query =    'SELECT `order`.`ID_ORDER` AS `count`, 
-                            `order`.`DTIME` AS `time` , 
-                            SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `total`, 
-                            SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
-                    FROM    `order`, `product_in_order`, `product` 
-                    WHERE   `product_in_order`.`PID` = `product`.`PID` 
-                            AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER`
-                            AND `order`.`DTIME` >= "2021-08-30"
-                            AND `order`.`DTIME` <= "2021-09-04"
-                    GROUP BY `order`.`ID_ORDER` 
-                    ORDER BY `order`.`ID_ORDER` ASC';   
-        $stmt = mysqli_query( $db, $query);
-        return $stmt;
-    }
-*/
     function getPayments()
     {
         global $db;
@@ -58,6 +40,22 @@
                     ORDER BY `order`.`DTIME` ASC';   
         $stmt = mysqli_query( $db, $query);
         return $stmt;
+    }
+    function getPayments_inTime($time_start, $time_end)
+    {
+        global $db, $payment;
+        $query =    "SELECT COUNT(`order`.`ID_ORDER`) AS `count`, 
+                            `order`.`DTIME` AS `time` , 
+                            SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `total`, 
+                            SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
+                    FROM    `order`, `product_in_order`, `product` 
+                    WHERE   `product_in_order`.`PID` = `product`.`PID` 
+                            AND `product_in_order`.`ORDER_ID` = `order`.`ID_ORDER`
+                            AND `order`.`DTIME` >= \"". $time_start ."\"
+                            AND `order`.`DTIME` <= \"". $time_end . "\"
+                    GROUP BY `order`.`DTIME` 
+                    ORDER BY `order`.`DTIME` ASC";   
+        $payment = mysqli_query( $db, $query);
     }
 
 ?>
