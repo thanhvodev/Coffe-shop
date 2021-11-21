@@ -137,7 +137,7 @@ if (isset($_REQUEST['search'])) {
         }
 
 
-        $sql = "select * from PRODUCT where PRO_NAME like '%$search%'";
+        $sql = "select * from PRODUCT where PRO_NAME like '%$search%' or CAT_NAME like '%$search%'";
         $result = $conn->query($sql);
 
         // Thực thi câu truy vấn
