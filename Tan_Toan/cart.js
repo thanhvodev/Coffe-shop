@@ -1,15 +1,11 @@
 var modal = document.getElementById("myCart");
 var btn = document.getElementById("cart");
 var close = document.getElementsByClassName("close")[0];
-var order = document.getElementsByClassName("order")[0];
 btn.onclick = function() {
     modal.style.display = "block";
 }
 close.onclick = function() {
     modal.style.display = "none";
-}
-order.onclick = function() {
-    alert("Cảm ơn bạn đã thanh toán đơn hàng")
 }
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -37,9 +33,7 @@ for (var i = 0; i < add_cart.length; i++) {
         var title = product.getElementsByClassName("card-text")[0]
         var price = product.getElementsByClassName("price")[0]
         addItemToCart(title, price, img)
-        add_cart.onclick = function() {
-            modal.style.display = "block";
-        }
+        modal.style.display = "block";
         updatecart()
     })
 }
