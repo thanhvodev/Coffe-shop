@@ -32,17 +32,20 @@
     function getPayments_inTime($time_start, $time_end)
     {
         global $db, $payment;
-        $query =    "SELECT COUNT(`order`.`ID_ORDER`) AS `count`, 
-                            `order`.`DTIME` AS `time` , 
-                            SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `total`, 
-                            SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
-                    FROM    `order`, `product_in_order`, `product` 
-                    WHERE   `product_in_order`.`PID` = `product`.`PID` 
-                            AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER`
-                            AND `order`.`DTIME` >= \"". $time_start ."\"
-                            AND `order`.`DTIME` <= \"". $time_end . "\"
-                    GROUP BY `order`.`DTIME` 
-                    ORDER BY `order`.`DTIME` ASC";   
+        $query =   "SELECT COUNT(`abc`.`id`) AS `count`, `time`, SUM(`total`) AS `total`,  SUM(`fund`) AS `fund`
+                    FROM    (SELECT `order`.`ID_ORDER` AS `id`, 
+                                    `order`.`DTIME` AS `time` , 
+                                    SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `total`, 
+                                    SUM(`product`.`FUND` * `product_in_order`.`QUANTITY`) AS `fund` 
+                            FROM    `order`, `product_in_order`, `product` 
+                            WHERE   `product_in_order`.`PID` = `product`.`PID` 
+                                    AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER`
+                                    AND `order`.`DTIME` >= \"". $time_start . "\"
+                                    AND `order`.`DTIME` <= \"" . $time_end . "\"
+                            GROUP BY `order`.`DTIME`, `order`.`ID_ORDER`
+                            ORDER BY `order`.`DTIME` ASC) AS `abc` 
+                    GROUP BY `abc`.`time`
+                    ORDER BY `abc`.`time`";   
         $payment = mysqli_query( $db, $query);
     }
     function getCost_inTime($time_start, $time_end)

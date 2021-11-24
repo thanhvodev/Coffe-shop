@@ -108,11 +108,6 @@ function clickNext(n){
 function call_clickNext(old_element, element, parentNode, table, listTitle, listTime, listBill, listRevenue, listFee, start, end){
     old_element.style.backgroundColor = "white";
     element.style.backgroundColor = "rgb(240, 218, 218)";
-    console.log(".................");
-    console.log(start.value);
-    console.log(end.value);
-    console.log(element.value);
-    console.log(".................");
     if(end.value > -1 && start.value > -1){
         if(element.value >= end.value){
             var num = end.value;
@@ -123,10 +118,6 @@ function call_clickNext(old_element, element, parentNode, table, listTitle, list
                 parentNode.childNodes[num + i + 1].style.display = "block";
             }
             start.value += (end.value - num);
-            console.log(".................");
-            console.log(start.value);
-            console.log(end.value);
-            console.log(".................");
         }
         else if(element.value <= start.value){
             var num = start.value;
@@ -137,10 +128,6 @@ function call_clickNext(old_element, element, parentNode, table, listTitle, list
                 parentNode.childNodes[num - i - 1].style.display = "block";
             }
             end.value -= (num - start.value);
-            console.log(".................");
-            console.log(start.value);
-            console.log(end.value);
-            console.log(".................");
         }
     }
     parentNode.childNodes[0].value = element.value - 1;
@@ -175,10 +162,6 @@ function getlist(listTime, listBill, listRevenue, listFee, start, end){
             listRevenue[listRevenue.length] = Number(payment[i].children[2].innerText);
             listFee[listFee.length] = Number(payment[i].children[3].innerText);
         }
-        console.log(listBill);
-        console.log(listFee);
-        console.log(listRevenue);
-        console.log(listTime);
 
         for(var i = 0, len = payment.length; i < len; i++){
             payment[0].remove();
@@ -213,14 +196,12 @@ function getTime(element, start, end){
             alert("Thời gian không hợp lệ");
             return;
         }
-        else if(day1.getMonth() == day2.getMonth() && day1.getDay() > day2.getDay()){
+        else if(day1.getMonth() == day2.getMonth() && day1.getDate() > day2.getDate()){
             alert("Thời gian không hợp lệ");
             return;
         }
     }
     search(String(timer[0].value), String(timer[1].value), end, start);
-    timer[0].value = "";
-    timer[1].value = "";
 }
 function search(time1, time2, start, end) {
     const xmlhttp = new XMLHttpRequest();
@@ -240,7 +221,7 @@ function add_notice(string){
     return '<div class="alert fail"><strong>Thêm thất bại!</strong></div>';
 }
 function addCost(element){
-    var value = element.parentNode.parentNode.getElementsByTagName("input");
+    var value = element.parentNode.parentNode.parentNode.getElementsByTagName("input");
     if(value[0].value == 0 || value[1].value == "" || value[2].value == 0 || value[3].value == 0){
         alert("Hãy điền thông tin");
         return;
@@ -389,11 +370,9 @@ function label_Month(element){
 }
 //---------------------------------------------------------------------------//
 function getWeekNumber(element) {
-    const d = new Date(element.split('-')[0], element.split('-')[1], element.split('-')[2]);
-    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
-
-    var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+    const d = new Date(element.split('-')[0], Number(element.split('-')[1]) - 1, element.split('-')[2]);
+    var yearStart = new Date(d.getFullYear(),0,1);
+    var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + yearStart.getDay() -1 + 1)/7);
     return weekNo;
 }
 function getDay_inWeek(element){
@@ -540,6 +519,30 @@ function display_modal_cost(parentNode){
     xmlhttp.send();
 }
 //--------------------------------//
+function display_modal_cost_search(element){ 
+    var modal_content = document.getElementById("myModal").getElementsByClassName("modal-content")[0];
+    if(element.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value == ""){
+        console.log(element.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value);
+        alert("Hãy điền thời gian");
+        return;
+    }
+    var day = element.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value.split('-');
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        modal_content.innerHTML = this.responseText;
+        var money = modal_content.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        for(var i = 0; i < money.length; i++){
+            money[i].getElementsByTagName("td")[2].innerText = getFormat(money[i].getElementsByTagName("td")[2].innerText);
+            money[i].getElementsByTagName("td")[4].innerText = getFormat(money[i].getElementsByTagName("td")[4].innerText);
+        }
+        modal_content.getElementsByTagName("h3")[0].innerText = "Tổng cộng: " + getFormat((modal_content.getElementsByTagName("h3")[0].innerText).split(" ")[2].split("(")[0]) + "(VND)";
+        modal_content.parentNode.style.display = "block";
+        modal_content.getElementsByTagName("span")[0].onclick = function(){modal_content.parentNode.style.display = "none";}
+        element.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value = "";
+    }
+    xmlhttp.open("GET", "./function/get_fee_in_day.php?date=" + element.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value + "&getday=" + day[2] + "/" + day[1] + "/" + day[0]);
+    xmlhttp.send();
+}
 // hiện bảng bill
 
 getlistType();
@@ -549,7 +552,10 @@ var end = {value: -1};
 console.log(start.value);
 console.log(end.value);
 click_form[0].addEventListener("click", function(){ getTime(click_form[0], start, end);});
-click_form[1].addEventListener("click", function(){ addCost(click_form[1]);});
+click_form[1].addEventListener("click", function(){
+    display_modal_cost_search(click_form[1]);
+});
+click_form[2].addEventListener("click", function(){ addCost(click_form[2]);});
 var modal = document.getElementById("myModal");
 window.onclick = function(event) {
   if (event.target == modal) {

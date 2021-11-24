@@ -96,6 +96,9 @@ h2.backgr{
     color: black !important;
     
 }
+.click:nth-child(2){
+    margin-left: 10px;
+}
 .click.pad{
     padding: 8px 20px;
 }

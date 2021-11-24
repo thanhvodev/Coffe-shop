@@ -84,7 +84,7 @@
                             <div class="col mb-2">
                                 <div class="row">
                                     <div class="col-4">Đơn giá:</div>
-                                    <div class="col-8"><input type="number" name="price" ></div>
+                                    <div class="col-8"><input type="number" name="price" step="1000"></div>
                                 </div>
                             </div>
                             <div class="col mb-2">
@@ -93,7 +93,10 @@
                                     <div class="col-8"><input type="number" name="number" ></div>
                                 </div>
                             </div>
-                            <button name="btnSearch" class="btn btn-secondary col-4 mt-1 mb-2 click">Thêm</button>
+                            <div class="col d-flex">
+                                <button name="btnSearch" class="btn btn-secondary col-4 mt-1 mb-2 click">Xem</button>
+                                <button name="btnSearch" class="btn btn-secondary col-4 mt-1 mb-2 click">Thêm</button>
+                            </div>
                         </div>
                     </form >
 
