@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -23,57 +22,45 @@ $order = mysqli_fetch_assoc($orders);
 $customer = mysqli_fetch_assoc($customer);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toán</title>
-    <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
-    <link rel="stylesheet" href="Checkout-General.css">
-    <!-- <script src="Checkout.js"></script> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <script src="upload.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel = "icon" href = "../IMAGE/logo.svg" type = "image/x-icon">
+    <link rel="stylesheet" href="style/checkout.css">
+    <title>Thanh toán | Thanh toán</title>
+
 </head>
-
 <body>
-    <!-- logoshop -->
-    <div id="header">
-        <img id="logoimg" src="image/logo.svg" alt="logo shop">
-        <p id="logotext"><b>Sokoshop</b></p>
-        <div id="backhome"> </div>
-        <button id="home" onclick="window.location.href='../Tan_Toan/'">Quay lại cửa hàng</button>
+
+    <div class="row" style="padding-bottom:10px;background-color: #FFE4E1; min-height:60px;">
+        <div class="col-sm-7" style="display: flex; padding-top: 10px; padding-left:50px;">
+            <img src="../IMAGE/logo.svg">
+            <b style="align-self:center;margin-left:10px; font-size:20px;">Sokoshop</b>
+        </div>
+        <div  class="col-sm-5" style="text-align: right;padding-top: 15px; padding-right:100px;">
+            <button onclick="window.location.href='../Tan_Toan/'">Trang chủ</button>
+        </div>
+    </div>
+    <div style="margin-top: 20px; margin-bottom:20px;">
+        <ul class="progressbar" >
+            <li class="active">Xác nhận đơn hàng</li>
+            <li class="active">Thông tin giao hàng</li>
+            <li>Thanh toán, đặt mua</li>
+        </ul>
+    </div>
+    <div style="margin-top: 100px; text-align:center;">
+        <b style="font-size:25px">Thanh toán, đặt mua</b>
     </div>
 
-    <!-- progressbar -->
-    <div id="progressbar">
-        <div id="progressname">
-            <div>
-                <p>Xác nhận đơn hàng</p>
-            </div>
-            <div id="text2">
-                <p>Thông tin giao hàng</p>
-            </div>
-            <div>
-                <p>Thanh toán, đặt mua</p>
-            </div>
-        </div>
-        <div id="progress">
-            <div class="completecircle" style="font-size: 15px;">1</div>
-            <div class="completerectangle"></div>
-            <div class="completecircle" style="font-size: 15px;">2</div>
-            <div class="completerectangle"></div>
-            <div class="completecircle" style="font-size: 15px;">3</div>
-        </div>
-    </div>
-    <!-- content -->
-    <div id="content">
-        <div id="typepayment">
-            <label><b>Vui lòng chọn một trong hai hình thức thanh toán sau đây: </b></label><br><br>
+    <div class="row" style="padding-bottom:10px;padding-top:10px;">
+        <div class="col-sm-7" style="padding-left:10%">
+        <label><b>Vui lòng chọn một trong hai hình thức thanh toán sau đây: </b></label><br><br>
             &emsp;&emsp;&emsp;<input type="radio" id="bycash" name="payment" value="bycash"  
             <?php if($order["STATE"] == 0){echo ' checked="checked"';} ?>>
             <label for="bycash">Thanh toán bằng tiền mặt khi nhận hàng</label><br><br>
@@ -90,21 +77,21 @@ $customer = mysqli_fetch_assoc($customer);
                 <div id="uploadimg">
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Lưu ảnh" name="submit">
+                    <input type="submit" value="Gửi ảnh" name="submit">
                 </form>
                 </br>
                 <?php if($order["STATE"] == 1){ echo '<img src='. $order["LINKBILL"]. ' height="100px">'; }?>
                 </div>
             </div>
         </div>
-        <div id="information">
-            <table id="info-table">
+        <div class="col-sm-5" style="padding-left:7%">
+            <table class="info">
                 <tr>
                     <th>Thông tin giao hàng</th>
                 </tr>
                 <tr>
                     <td>
-                        <b>Họ tên khách hàng</b><br>
+                        <b>Họ tên khách hàng:</b><br>
                         <p><?php echo $customer["FULLNAME"]; ?></p>
                         
                         <b>Số điện thoại: </b>
@@ -114,56 +101,41 @@ $customer = mysqli_fetch_assoc($customer);
                     </td>
                 </tr>
             </table>
-            <br><br><br><br>
+            <br>
             <b>Tổng tiền cần thanh toán:</b>
             <b style="color: red; font-size:20px;"><?php echo $order["TOTAL"]; ?> VND</b>
         </div>
     </div>
 
-    <!-- navigationbar -->
-    <div id="navigationbar">
-        <div id="leftbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='Checkout-Addressinfo.php'">Quay lại</button>
-        </div>
-        <div id="rightbtn">
-            <button class="footer-nav-btn" data-toggle="modal" data-target="#exampleModal">Đặt mua</button>
-        </div>
+
+    <div class="foot-btn-container">
+        <button class="foot-btn" onclick="window.location.href='Checkout-Addressinfo.php'">Quay lại</button>
+        <button class="foot-btn second-btn" onclick="window.location.href='Checkout-Finish.php'">Hoàn tất</button>
     </div>
 
 
 
- <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Đơn hàng của bạn đang được sử lý. Hãy để ý điện thoại! Nhân viên cửa hàng sẽ gọi điện cho bạn để xác nhận. 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='../Tan_Toan/'">Tiếp tục vào cửa hàng</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
-<footer>
-    <div class="logoFooter">
+    <div style="text-align:center; background-color: #FFE4E1; padding-bottom:10px; margin-top: 50px;">   
         <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-        <img id="logo" src="./image/logo.svg" alt="Logo"> Sokoshop
+        <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
     </div>
-</footer>
+
+
+    <script type = "text/javascript">
+    radio1 = document.getElementById('bycash');
+	radio2 = document.getElementById('byATMcard');
+	let content = document.getElementById('extension');
+    if(radio1.checked){
+        content.style.display = 'none';
+    }
+    radio1.addEventListener("click", function () {
+		content.style.display = 'none';
+	});
+
+	radio2.addEventListener("click", function () {
+		content.style.display = 'block';
+	});
+    </script>
+</body>
 
 </html>

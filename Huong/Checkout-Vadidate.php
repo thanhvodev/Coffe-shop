@@ -19,115 +19,88 @@ $cart = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 
-$temp = mysqli_fetch_assoc($order);
+$order = mysqli_fetch_assoc($order);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toán| Xác nhận đơn hàng</title>
-    <link rel="shortcut icon" type="image/x-icon" href="image/logo.svg" />
-    <link rel="stylesheet" href="Checkout-General.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel = "icon" href = "../IMAGE/logo.svg" type = "image/x-icon">
+    <link rel="stylesheet" href="style/checkout.css">
+    <title>Thanh toán | Xác nhận đơn hàng</title>
 </head>
-
 <body>
-    <!-- logoshop -->
-    <div id="header">
-        <img id="logoimg" src="image/logo.svg" alt="logo shop">
-        <p id="logotext"><b>Sokoshop</b></p>
-        <div id="backhome"> </div>
-        <button id="home" onclick="window.location.href='../Tan_Toan/'">Quay lại cửa hàng</button>
+
+    <div class="row" style="padding-bottom:10px;background-color: #FFE4E1; min-height:60px;">
+        <div class="col-sm-7" style="display: flex; padding-top: 10px; padding-left:50px;">
+            <img src="../IMAGE/logo.svg">
+            <b style="align-self:center;margin-left:10px; font-size:20px;">Sokoshop</b>
+        </div>
+        <div  class="col-sm-5" style="text-align: right;padding-top: 15px; padding-right:100px;">
+            <button onclick="window.location.href='../Tan_Toan/'">Trang chủ</button>
+        </div>
+        </div>
+    <div style="margin-top: 20px; margin-bottom:20px;">
+        <ul class="progressbar" >
+            <li>Xác nhận đơn hàng</li>
+            <li>Thông tin giao hàng</li>
+            <li>Thanh toán, đặt mua</li>
+        </ul>
+    </div>
+    <div style="margin-top: 100px; text-align:center;">
+        <b style="font-size:25px">Chi tiết đơn hàng</b>
     </div>
 
-    <!-- progressbar -->
-    <div id="progressbar">
-        <div id="progressname">
-            <div>
-                <p>Xác nhận đơn hàng</p>
-            </div>
-            <div id="text2">
-                <p>Thông tin giao hàng</p>
-            </div>
-            <div>
-                <p>Thanh toán, đặt mua</p>
-            </div>
-        </div>
-        <div id="progress">
-            <div class="completecircle">1</div>
-            <div class="incompleterectangle"></div>
-            <div class="incompletecircle">2</div>
-            <div class="incompleterectangle"></div>
-            <div class="incompletecircle">3</div>
-        </div>
-    </div>
-    <!-- bill -->
-    <br>
-    <b style="padding-left: 40%; font-size:25px">CHI TIẾT ĐƠN HÀNG</b>
-    <div id="billinfo">
-        <table id="table-bill">
+    <div style="margin-top: 30px;padding-left: 12%; min-height: 300px">
+        <table class="bill">
             <tr>
-                <th class="bill-title">SẢN PHẨM</th>
-                <th class="bill-title">GIÁ</th>
-                <th class="bill-title">SỐ LƯỢNG</th>
-                <th class="bill-title">TỔNG TIỀN</th>
-              </tr>
-              
-        <?php
-            if (mysqli_num_rows($cart) > 0) { ?>
-                <?php while ($row = mysqli_fetch_assoc($cart)) { ?>
-                <tr>
-                    <td style="display:flex; align-items: center">
-                        <img src="<?php echo $row["IMG"] ?>" height="40px"> 
-                        &nbsp;&nbsp;&nbsp;<p style="font-size: 16px;"><?php echo $row["NAME"] ?></p>
-                    </td>
-                    <td><?php echo $row["PRICE"] ?></td>
-                    <td class="center-col"><?php echo $row["QTY"] ?></td>
-                    <td class="center-col"><?php echo $row["TOTAL"] ?></td>
-                </tr>
-                <?php } ?>
-            <?php } ?>
+                <th class="bill-title" style="width:40%">Sản phẩm</th>
+                <th class="bill-title" style="width:20%">Giá</th>
+                <th class="bill-title" style="width:20%">Số lượng</th>
+                <th class="bill-title" style="width:20%">Tổng tiền</th>
+            </tr>
+            <?php
+            if (mysqli_num_rows($cart) > 0) { 
+                while ($row = mysqli_fetch_assoc($cart)) { ?>
+            <tr>
+                <td> &nbsp; <img src="<?php echo $row["IMG"] ?>" height="40px"> &nbsp;  &nbsp;<?php echo $row["NAME"] ?></td>
+                <td style="text-align: center;"><?php echo $row["PRICE"] ?></td>
+                <td style="text-align: center;"><?php echo $row["QTY"] ?></td>
+                <td style="text-align: center;"><?php echo $row["TOTAL"] ?></td>
+            </tr>
+            <?php }} ?>
         </table>
-        <b style="padding-left: 40%; font-size:25px">TỔNG CỘNG:</b> 
-        &nbsp;&nbsp; <b style="color: red; font-size:25px;"><?php echo $temp["TOTAL"]?> VND</b>
-    </div>
-
-    <!-- navigationbar -->
-    <div id="navigationbar">
-        <div id="leftbtn">
-            <button class="footer-nav-btn" onclick="window.location.href='../Tan_Toan/'">Quay lại</button>
-        </div>
-        <div id="rightbtn">
-            <button class="footer-nav-btn" onclick= "my_function()">Tiếp theo</button>
-        </div>
+        <br>
+        <b style="padding-left:33%; font-size:18px;">TỔNG CỘNG : </b>
+        <b style="font-size: 18px; color:red;"> <?php echo $order["TOTAL"]; ?> VND</b>
     </div>
 
 
+    <div class="foot-btn-container">
+        <button class="foot-btn" onclick="window.location.href='../Tan_Toan/'">Quay lại</button>
+        <button class="foot-btn second-btn" onclick= "my_function()">Tiếp theo</button>
+    </div>
+
+    <div style="text-align:center; background-color: #FFE4E1; padding-bottom:10px; margin-top: 50px;">   
+        <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
+        <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
+    </div>
 
 <script>
 function my_function() {
   var request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      alert(this.responseText);
-    }
-  };
   request.open("GET", "gotoAddressinfo.php", true);
   request.send();
   window.location.href='Checkout-Addressinfo.php';
 }
-
 </script>
 
 </body>
-<footer>
-    <div class="logoFooter">
-        <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
-        <img id="logo" src="./image/logo.svg" alt="Logo"> Sokoshop
-    </div>
-</footer>
 
 </html>

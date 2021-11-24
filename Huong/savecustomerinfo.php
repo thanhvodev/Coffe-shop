@@ -5,10 +5,10 @@
     $password = "";
     $dbname = "sokoshop";
 
-    $fullname = $_GET['fullname'];
-    $phonenumber = $_GET['phonenumber'];
-    $numberandstreet = $_GET['numberandstreet'];
-    $district = $_GET['district'];
+    $fullname = $_POST['name'];
+    $phonenumber = $_POST['phone'];
+    $numberandstreet = $_POST['street'];
+    $district = $_POST['district'];
 
 
     // Create connection
@@ -23,6 +23,5 @@
     mysqli_query($conn, $sql);
 
     mysqli_close($conn);
-    header('location: Checkout-Addressinfo.php');
    
 ?>
