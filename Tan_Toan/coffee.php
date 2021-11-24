@@ -37,8 +37,41 @@
                 <li class="nav-item"><a class="nav-link" href="../Thanh/login.php">Quản lý</a></li>
             </ul>
             <form class="d-flex cart">
-                <button type="button" class="btn btn-light cartButton" data-bs-toggle="modal"
-                    data-bs-target="#myCart">Giỏ hàng <i class="fa fa-cart-plus cart-icon"></i></button>
+                <button id = "cart" type="button" class="btn btn-light cartButton">Giỏ hàng
+                    <i class="fa fa-cart-plus cart-icon"></i>
+                </button> 
+                <div id="myCart" class="modal">
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header"> 
+                                <div class="center"><h3>Chi tiết đơn hàng</h3></div> 
+                                    <button type="button" class="btn-close close"></button> 
+                                </div> 
+                                <div class="modal-body">
+                                    <div class="cart-row">
+                                        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                                        <span class="cart-price cart-header cart-column">Giá</span>
+                                        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                                        <span class="cart-totalprice cart-header cart-column">Tổng tiền</span>
+                                        <span class="cart-delete cart-header cart-column"></span>
+                                    </div>
+                                    <div class="cart-items">
+                                        
+                                    </div>
+                                    <div class="cart-total">
+                                        <strong class="cart-total-title">Tổng Cộng:</strong>
+                                        <span class="cart-total-price">0VND</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer" id="navigationbar">
+                                    <div id="rightbtn" class="cartButton">
+                                        <button class="btn btn-danger order" onclick="window.location.href='../Huong/Vadidate.html'">Thanh toán</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
             </form>
         </div>
     </div>
@@ -210,121 +243,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- The Modal Cart-->
-    <div class="modal fade" id="myCart">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-
-                <!-- Mở modal -->
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <div class="center">
-                        <h3>Chi tiết đơn hàng</h3>
-                    </div>
-                    <button type="button" class="btn-close close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="cart-row">
-                        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
-                        <span class="cart-price cart-header cart-column">Giá</span>
-                        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
-                        <span class="cart-totalprice cart-header cart-column">Tổng tiền</span>
-                        <span class="cart-delete cart-header cart-column"></span>
-                    </div>
-                    <div class="cart-items">
-                        <div class="cart-row">
-                            <div class="cart-item cart-column">
-                                <img class="cart-item-image" src="images/CaPheSuaDa.jpg" alt="Card image"
-                                    style="width:15%">
-                                <span class="cart-item-title">Cà phê sữa đá</span>
-                            </div>
-                            <span class="cart-price cart-column">20đ</span>
-                            <div class="cart-quantity cart-column">
-                                <input class="cart-quantity-input" type="number" value="1">
-                            </div>
-                            <span class="cart-totalprice cart-column">20đ</span>
-                            <div class="cart-delete cart-column">
-                                <button class="btn btn-danger erase-cart" type="button">Xóa</button>
-                            </div>
-                        </div>
-                        <div class="cart-row">
-                            <div class="cart-item cart-column">
-                                <img class="cart-item-image" src="images/MatchaDaXay.jpg" alt="Card image"
-                                    style="width:15%">
-                                <span class="cart-item-title">Matcha đá xay</span>
-                            </div>
-                            <span class="cart-price cart-column">35đ</span>
-                            <div class="cart-quantity cart-column">
-                                <input class="cart-quantity-input" type="number" value="1">
-                            </div>
-                            <span class="cart-totalprice cart-column">35đ</span>
-                            <div class="cart-delete cart-column">
-                                <button class="btn btn-danger erase-cart" type="button">Xóa</button>
-                            </div>
-                        </div>
-                        <div class="cart-row">
-                            <div class="cart-item cart-column">
-                                <img class="cart-item-image" src="images/ChocolateDaXay.jpg" alt="Card image"
-                                    style="width:15%">
-                                <span class="cart-item-title">Chocolate đá xay</span>
-                            </div>
-                            <span class="cart-price cart-column">45đ</span>
-                            <div class="cart-quantity cart-column">
-                                <input class="cart-quantity-input" type="number" value="1">
-                            </div>
-                            <span class="cart-totalprice cart-column">45đ</span>
-                            <div class="cart-delete cart-column">
-                                <button class="btn btn-danger erase-cart" type="button">Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-total">
-                        <strong class="cart-total-title">Tổng Cộng:</strong>
-                        <span class="cart-total-price">100VND</span>
-                    </div>
-                </div>
-                <div class="modal-footer" id="navigationbar">
-                    <div id="rightbtn" class="cartButton">
-                        <button class="btn btn-danger order"
-                            onclick="window.location.href='../Huong/Checkout-Vadidate.php'">Thanh toán</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
+    <script src ="cart.js"></script>
 
 </body>
 
