@@ -108,7 +108,7 @@ $customer = mysqli_fetch_assoc($customer);
     </div>
 
 
-    <div class="foot-btn-container">
+    <div class="foot-btn-container" style="min-height:200px; padding-top:100px">
         <button class="foot-btn" onclick="window.location.href='Checkout-Addressinfo.php'">Quay lại</button>
         <button class="foot-btn second-btn" onclick="window.location.href='Checkout-Finish.php'">Hoàn tất</button>
     </div>

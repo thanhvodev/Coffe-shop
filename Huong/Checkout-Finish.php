@@ -61,7 +61,7 @@
     </div>
 
 
-    <div style="text-align:center; background-color: #FFE4E1; padding-bottom:10px; margin-top: 50px;">   
+    <div style="text-align:center; background-color: #FFE4E1; padding-bottom:10px; margin-top: 50px;position: absolute;bottom: 0; width: 100%;">   
         <p>Copyright 2021 by Sokoshop. All Rights Reserved.</p>
         <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
     </div>
