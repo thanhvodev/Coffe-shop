@@ -31,7 +31,6 @@
         update_payment_total($i + 1);
     }
 */
-    echo "ok";
 
     mysqli_close($db);
     header("location: ../../Tan_Toan/");

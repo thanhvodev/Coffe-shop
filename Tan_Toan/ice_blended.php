@@ -206,7 +206,7 @@
                                                                     </div>
                                                                 </form>
                 
-                                                                <button class="addToCart">Thêm vào Giỏ hàng</button>
+                                                                <button id="cart" type="button"  class="addToCart btn btn-cart">Thêm vào Giỏ hàng</button>
                                                             </div>
                         
                                                         </div>

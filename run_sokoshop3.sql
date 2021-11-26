@@ -24738,3 +24738,10 @@ INSERT INTO `product_in_order` (`PID`, `ID_ORDER`, `QUANTITY`, `NOTE`) VALUES
 ("pro17", 12383, 5, "abc"),
 ("pro29", 12384, 3, "abc"),
 ("pro23", 12384, 5, "abc");
+
+UPDATE `order`
+SET `order`.`TOTAL` = (SELECT `abc`.`sum` FROM (SELECT `order`.`ID_ORDER` AS `id`, SUM(`product`.`PRICE` * `product_in_order`.`QUANTITY`) AS `sum` 
+              FROM `product_in_order`, `product`, `order`
+              WHERE `product_in_order`.`PID` = `product`.`PID` AND `product_in_order`.`ID_ORDER` = `order`.`ID_ORDER`
+              GROUP BY `product_in_order`.`ID_ORDER`) AS `abc` WHERE `order`.`ID_ORDER` = `abc`.`id`)
+WHERE `order`.`ID_ORDER` > 0;

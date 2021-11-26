@@ -269,7 +269,7 @@ function Dateformat(element){
 function getFormat(element){
     let nodestr = "";
     for(var j = element.length; j > 3; j -= 3){
-        nodestr = "," + element[j-1] + element[j-2] + element[j-3] + nodestr;
+        nodestr = "," + element[j-3] + element[j-2] + element[j-1] + nodestr;
     }
     if (element .length % 3 == 0){
         nodestr = element[0] + element[1] + element[2] + nodestr;
@@ -549,8 +549,6 @@ getlistType();
 var click_form = document.getElementsByClassName("click");
 var start = {value:  -1};
 var end = {value: -1};
-console.log(start.value);
-console.log(end.value);
 click_form[0].addEventListener("click", function(){ getTime(click_form[0], start, end);});
 click_form[1].addEventListener("click", function(){
     display_modal_cost_search(click_form[1]);

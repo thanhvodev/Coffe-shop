@@ -29,7 +29,7 @@ for (var i = 0; i < add_cart.length; i++) {
     add.addEventListener("click", function(event) {
         var button = event.target;
         var product = button.parentElement.parentElement;
-        var img = product.parentElement.getElementsByClassName("imageCard")[0]
+        var img = product.parentElement.getElementsByClassName("imageCard")[0];
         var title = product.getElementsByClassName("card-text")[0]
         var price = product.getElementsByClassName("price")[0]
         addItemToCart(title, price, img)

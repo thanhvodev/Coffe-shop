@@ -22,11 +22,11 @@
 <body>
     <?php echo' 
     <div class="row nav navHome">
-        <div class="col-md-3 col-sm-3 col-12 logo">
+        <div class="col-4 col-md-3 col-sm-4 logo">
             <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
         </div>
 
-        <div class="col-md-6 col-sm-6 col-12 listNav">
+        <div class="col-5 col-md-6 col-sm-5 listNav">
             <ul>
                 <li><a href="../Thanh/top-product.php">Menu</a></li>
                     <li><a href=" #" class="active">Doanh thu</a></li>
