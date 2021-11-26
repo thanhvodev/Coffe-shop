@@ -82,7 +82,7 @@ $order = mysqli_fetch_assoc($order);
     </div>
 
 
-    <div class="foot-btn-container">
+    <div class="foot-btn-container" style="min-height:200px; padding-top:100px">
         <button class="foot-btn" onclick="window.location.href='../Tan_Toan/'">Quay lại</button>
         <button class="foot-btn second-btn" onclick= "my_function()">Tiếp theo</button>
     </div>
