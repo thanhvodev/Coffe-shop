@@ -95,9 +95,9 @@ mysqli_close($conn);
                                                         <option value="Đá Xay - Choco - Matcha">Đá Xay - Choco - Matcha</option>
                                                         <option value="Thưởng Thức Tại Nhà">Thưởng Thức Tại Nhà</option>
                                                     </select>
-                                                    <label for="quantity" class="form-label">Quantity</label>
+                                                    <label for="quantity" class="form-label">Số lượng bán trong ngày</label>
                                                     <input type="text" class="form-control" id="quantity" name="quantity">
-                                                    <label for="fund" class="form-label">Fund</label>
+                                                    <label for="fund" class="form-label">Giá gốc</label>
                                                     <input type="text" class="form-control" id="fund" name="fund">
                                                 </div>
 
@@ -198,9 +198,9 @@ mysqli_close($conn);
                                                                                                                 echo "";
                                                                                                             } ?>>Thưởng Thức Tại Nhà</option>
                                                                     </select>
-                                                                    <label for="quantity" class="form-label">Quantity</label>
+                                                                    <label for="quantity" class="form-label">Số lượng bán trong ngày</label>
                                                                     <input type="text" class="form-control" name="quantity" value=<?php echo  $row["QUANTITY"] ?>>
-                                                                    <label for="fund" class="form-label">Fund</label>
+                                                                    <label for="fund" class="form-label">Giá gốc</label>
                                                                     <input type="text" class="form-control" name="fund" value=<?php echo  $row["FUND"] ?>>
                                                                 </div>
 
