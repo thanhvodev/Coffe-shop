@@ -87,13 +87,13 @@ $order = mysqli_fetch_assoc($order);
                 while ($row = mysqli_fetch_assoc($cart)) { ?>
                     <tr>
                         <td> &nbsp; <img src="<?php echo $row["IMG"] ?>" height="40px"> &nbsp; &nbsp;<?php echo $row["NAME"] ?></td>
-                        <td style="text-align: center;"><?php echo $row["PRICE"] ?></td>
+                        <td style="text-align: center;"><?php echo $row["PRICE"]/ 1000 . '.' . '000' . ' đ' ?></td>
                         <td style="text-align: center;">
                             <button class="btn btn-secondary" onclick="inOrDecreaseQty(<?php echo '\'' . $row['PID'] . '\',' . $row['QTY']; ?>,0)">-</button>
                             <?php echo $row["QTY"] ?>
                             <button class="btn btn-secondary" onclick="inOrDecreaseQty(<?php echo '\'' . $row['PID'] . '\',' . $row['QTY']; ?>,1)">+</button>
                         </td>
-                        <td style="text-align: center;"><?php echo $row["TOTAL"] ?></td>
+                        <td style="text-align: center;"><?php echo $row["TOTAL"]/ 1000 . '.' . '000' . ' đ' ?></td>
                         <td style="text-align: center;"><button class="btn btn-danger" onclick="delProInCart('<?php echo $row['PID']; ?>')">Xóa</button></td>
                     </tr>
             <?php }
@@ -101,7 +101,7 @@ $order = mysqli_fetch_assoc($order);
         </table>
         <br>
         <b style="padding-left:33%; font-size:18px;">TỔNG CỘNG : </b>
-        <b style="font-size: 18px; color:red;"> <?php echo $order["TOTAL"]; ?> VND</b>
+        <b style="font-size: 18px; color:red;"> <?php echo $order["TOTAL"]/ 1000 . '.' . '000' . 'đ'; ?></b>
     </div>
 
 
