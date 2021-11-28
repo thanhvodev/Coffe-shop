@@ -35,16 +35,6 @@ $customer = mysqli_fetch_assoc($customer);
     <link rel="stylesheet" href="style/checkout.css">
     <title>Thanh toán | Thanh toán</title>
 
-    <script>
-        function finish(){
-            var xmlhttp = new XMLHttpRequest();
-
-            xmlhttp.open("GET", "finish.php?", true);
-            xmlhttp.send();
-            window.location.href='Checkout-Finish.php';
-        }
-    </script>
-
 </head>
 <body>
 
@@ -120,7 +110,7 @@ $customer = mysqli_fetch_assoc($customer);
 
     <div class="foot-btn-container" style="min-height:200px; padding-top:100px">
         <button class="foot-btn" onclick="window.location.href='Checkout-Addressinfo.php'">Quay lại</button>
-        <button class="foot-btn second-btn" onclick="finish()">Hoàn tất</button>
+        <button class="foot-btn second-btn" onclick="window.location.href='Checkout-Finish.php'">Hoàn tất</button>
     </div>
 
 

@@ -1,34 +1,4 @@
-﻿<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sokoshop";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT * FROM `order` WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`) AND `COMPLETED` = 0;";
-$order = mysqli_query($conn, $sql);
-
-
-if (mysqli_num_rows($order) > 0) {
-    $order = mysqli_fetch_assoc($order);
-} else {
-    $sql = "INSERT INTO `order`(`STATE`,`COMPLETED`) VALUES (0,0);";
-    $order = mysqli_query($conn, $sql);
-    $sql = "SELECT * FROM `order` WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`) AND `COMPLETED` = 0;";
-    $order = mysqli_query($conn, $sql);
-    $order = mysqli_fetch_assoc($order);
-}
-
-mysqli_close($conn);
-?>
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -67,9 +37,41 @@ mysqli_close($conn);
                 <li class="nav-item"><a class="nav-link" href="../Thanh/login.php">Quản lý</a></li>
             </ul>
             <form class="d-flex cart">
-                <button id = "cart" class="btn btn-light cartButton"><a href="cart.php" class="navbar-brand">Giỏ hàng
-                    <i class="fa fa-cart-plus cart-icon"></i></a>
-                </button>   
+                <button id = "cart" type="button" class="btn btn-light cartButton">Giỏ hàng
+                    <i class="fa fa-cart-plus cart-icon"></i>
+                </button> 
+                <div id="myCart" class="modal">
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header"> 
+                                <div class="center"><h3>Chi tiết đơn hàng</h3></div> 
+                                    <button type="button" class="btn-close close"></button> 
+                                </div> 
+                                <div class="modal-body">
+                                    <div class="cart-row">
+                                        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                                        <span class="cart-price cart-header cart-column">Giá</span>
+                                        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                                        <span class="cart-totalprice cart-header cart-column">Tổng tiền</span>
+                                        <span class="cart-delete cart-header cart-column"></span>
+                                    </div>
+                                    <div class="cart-items">
+                                        
+                                    </div>
+                                    <div class="cart-total">
+                                        <strong class="cart-total-title">Tổng Cộng:</strong>
+                                        <span class="cart-total-price">0VND</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer" id="navigationbar">
+                                    <div id="rightbtn" class="cartButton">
+                                        <button class="btn btn-danger order" onclick="window.location.href='../Huong/Vadidate.html'">Thanh toán</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
             </form>
         </div>
     </div>
@@ -196,15 +198,15 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                 <form>
                                                     <div class="quantity d-flex">
                                                         <label for "'.'input-qty-'. $row["PID"] . '" class="label-qty"><i class="material-icons">format_list_numbered</i> Số lượng</label>
-                                                        <input id="'.'input-qty-'. $row["PID"] . '" class="input-qty" type="number" value="1" min="1">
+                                                        <input id='.'input-qty-'. $row["PID"] . ' class="input-qty" type="number" value="1">
                                                     </div>
                                                     <div class="note">
                                                         <label for "'.'input-note-'. $row["PID"] . '" class="label-note"><i class="fa fa-pencil-square-o"></i> Ghi chú thêm cho món này</label><br>
-                                                        <input id="'.'input-note-'. $row["PID"] . '" class="input-note" type="text">
+                                                        <input id='.'input-note-'. $row["PID"] . ' class="input-note" type="text">
                                                     </div>
                                                 </form>
 
-                                                <button id="cart" type="button"  data-bs-dismiss="modal" class="addToCart btn btn-cart" onclick="javascript:addOrUpdateOrder(\''. $row["PID"] . '\',\'input-note-'. $row["PID"] . '\',\'input-qty-'. $row["PID"] . '\', ' . $row["PRICE"]. ')">Thêm vào Giỏ hàng</button>
+                                                <button id="cart" type="button"  class="addToCart btn btn-cart">Thêm vào Giỏ hàng</button>
                                             </div>
         
                                         </div>
@@ -241,17 +243,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </footer>
 
-    <script type="text/javascript">
-        function addOrUpdateOrder(PID, note, quantity, price){
-            alert("Bạn đã thêm vào giỏ hàng!");
-            var qty = parseInt(document.getElementById(quantity).value);
-            var total = qty * price;
-            var notetext = document.getElementById(note).value.toString().trim();
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "addOrUpdateOrder.php?ProID=" + PID + "&note=" + notetext + "&total=" + total + "&qty="+ qty, true);
-            xmlhttp.send();
-        }
-    </script>
+    <script src ="cart.js"></script>
 
 </body>
 

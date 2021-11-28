@@ -1,0 +1,147 @@
+.progressbar {
+  counter-reset: step;
+}
+
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+
+.progressbar li::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 2px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.progressbar li::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li:first-child::after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: #E77777;
+}
+
+.progressbar li.active::before {
+  border-color: #E77777;
+}
+
+.progressbar li.active + li::after {
+  background-color: #E77777;
+}
+
+.foot-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20%;
+}
+
+.foot-btn {
+  border: solid;
+  border-color: #EAAEAE;
+  background-color: #FFE4E1;
+  border-radius: 50%;
+  width: 130px;
+  height: 50px;
+}
+
+.foot-btn:hover {
+  background-color: #EAAEAE;
+}
+
+.second-btn {
+  margin-left: 50%;
+}
+
+.bill {
+  border-collapse: collapse;
+  width: 86%;
+}
+
+.bill td, .bill th {
+  border: 1px solid #E77777;
+  padding: 8px;
+}
+
+.bill-title {
+  font-size: 18px;
+}
+
+.bill tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.bill tr:hover {
+  background-color: #ddd;
+}
+
+.bill th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #EAAEAE;
+  color: white;
+  font-size: 20px;
+}
+
+.info td, .info th {
+  border: 1px solid #E77777;
+  padding: 8px;
+}
+
+.info th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #EAAEAE;
+  font-size: 20px;
+}
+
+.info {
+  width: 70%;
+}
+
+.footpage {
+  text-align: center;
+  background-color: #FFE4E1;
+  padding-bottom: 10px;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+}
+/*# sourceMappingURL=checkout.css.map */

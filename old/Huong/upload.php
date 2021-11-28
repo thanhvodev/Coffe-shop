@@ -23,7 +23,7 @@ if (file_exists($target_file)) {
 }
 else{
   // Check file size
-  if ($_FILES["fileToUpload"]["size"] > 2000000) {
+  if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
@@ -53,8 +53,8 @@ else{
           if (!$conn) {
               die("Connection failed: " . mysqli_connect_error());
           }
-          $payment_date = date("Y-m-d", time());
-          $sql = "UPDATE `order` SET `LINKBILL` = '$target_file', `STATE` = 1, `DTIME` = '$payment_date' WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`);";
+      
+          $sql = "UPDATE `order` SET `LINKBILL` = '$target_file', `STATE` = 1 WHERE `ID_ORDER` = (SELECT MAX(`ID_ORDER`) FROM `order`);";
           $orders = mysqli_query($conn, $sql);
       
           mysqli_close($conn);
