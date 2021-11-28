@@ -68,10 +68,10 @@ mysqli_close($conn);
         <label style="font-size: 18px; margin-top:20px; margin-left: 50px;" for="phone">Số điện thoại: </label>
         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <input type="text" id="phone" <?php if ($cus != NULL) echo "value=" . "'" . $cus['PHONE_NO'] . "'"; ?>> <br><br>
         <b style="font-size: 20px;">Địa chỉ giao hàng</b><br>
-        <label style="font-size: 18px; margin-top:20px; margin-left: 50px;" for="street">Số nhà, tên đường: </label>
+        <label style="font-size: 18px; margin-top:20px; margin-left: 50px;" for="street">Số nhà, tên đường, phường: </label>
         &nbsp;&emsp;&emsp;&emsp; <input type="text" id="street" <?php if ($cus != NULL) echo "value=" . "'" . $cus['NUMANDSTREET'] . "'"; ?>> <br>
         <label style="font-size: 18px; margin-top:20px; margin-left: 50px;" for="district">Quận: </label>
-        &nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <input type="text" id="district" <?php if ($cus != NULL) echo "value=" . "'" . $cus['DISTRICT'] . "'"; ?>> <br><br>
+        &nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <input type="text" id="district" <?php if ($cus != NULL) echo "value=" . "'" . $cus['DISTRICT'] . "'"; ?>> <br><br>
     </div>
 
 
