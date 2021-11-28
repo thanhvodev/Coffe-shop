@@ -30,7 +30,8 @@ CREATE TABLE `order` (
   `DTIME` date DEFAULT NULL,
   `TOTAL` int DEFAULT 0,
   `STATE` tinyint(1)  NULL,
-  `LINKBILL` text default NULL
+  `LINKBILL` text default NULL,
+  `COMPLETED` tinyint(1) DEFAULT 1
 );
 
 -- --------------------------------------------------------
