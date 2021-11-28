@@ -25,7 +25,7 @@ mysqli_close($conn);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản phẩm hàng đầu</title>
+    <title>Đá xay - Choco - Matcha</title>
     <link rel="shortcut icon" type="image/x-icon" href="../IMAGE/logo.svg" />
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -64,10 +64,10 @@ mysqli_close($conn);
                         <h4>Danh mục sản phẩm</h4>
                         <ul>
                             <li><a href="./top-product.php">Sản phẩm hàng đầu</a></li>
-                            <li><a href="./Coffe.php">Cà phê</a></li>
-                            <li><a href="./Juice-Tea.php">Trà trái cây - trà sữa</a></li>
+                            <li><a href="./Coffe.php">Cà Phê</a></li>
+                            <li><a href="./Juice-Tea.php">Trà Trái Cây - Trà Sữa</a></li>
                             <li><a href="./Choco-Matcha.php">Đá xay - Choco - Matcha</a></li>
-                            <li><a class="active" href="#">Thưởng thức tại nhà</a></li>
+                            <li><a class="active" href="#">Thưởng Thức Tại Nhà</a></li>
                         </ul>
                     </div>
                     <button type="button" class="btn btn-primary news" style="width: 88%;" data-bs-toggle="modal" data-bs-target="#addproductModal">
@@ -90,10 +90,10 @@ mysqli_close($conn);
 
                                                     <input name="image-link" type="text" class="btn news linkimg" placeholder="link to image">
                                                     <select name="category" class="form-select" aria-label="Default select example">
-                                                        <option value="Cà phê">Cà phê</option>
-                                                        <option value="Trà trái cây - trà sữa">Trà trái cây - trà sữa</option>
-                                                        <option value="Đá xoay - choco - Matcha">Đá xoay - choco - Matcha</option>
-                                                        <option value="Thưởng thức tại nhà">Thưởng thức tại nhà</option>
+                                                        <option value="Cà Phê">Cà Phê</option>
+                                                        <option value="Trà Trái Cây - Trà Sữa">Trà Trái Cây - Trà Sữa</option>
+                                                        <option value="Đá Xay - Choco - Matcha">Đá Xay - Choco - Matcha</option>
+                                                        <option value="Thưởng Thức Tại Nhà">Thưởng Thức Tại Nhà</option>
                                                     </select>
                                                     <label for="quantity" class="form-label">Quantity</label>
                                                     <input type="text" class="form-control" id="quantity" name="quantity">
@@ -134,7 +134,7 @@ mysqli_close($conn);
                 <div class="col-9 second">
                     <div class="row">
                         <div class="col-6 mainHeader">
-                            <h3>Sản phẩm hàng đầu</h3>
+                            <h3>Thưởng Thức Tại Nhà</h3>
                         </div>
                         <div class="col-6 search">
                             <form class="d-flex searchTool">
@@ -181,22 +181,22 @@ mysqli_close($conn);
                                                                                                     echo "selected";
                                                                                                 } else {
                                                                                                     echo "";
-                                                                                                } ?>>Cà phê</option>
+                                                                                                } ?>>Cà Phê</option>
                                                                         <option value="Trà Trái Cây - Trà Sữa" <?php if ($row["CAT_NAME"] == "Trà Trái Cây - Trà Sữa") {
                                                                                                                     echo "selected";
                                                                                                                 } else {
                                                                                                                     echo "";
-                                                                                                                } ?>>Trà trái cây - trà sữa</option>
+                                                                                                                } ?>>Trà Trái Cây - Trà Sữa</option>
                                                                         <option value="Đá Xay - Choco - Matcha" <?php if ($row["CAT_NAME"] == "Đá Xay - Choco - Matcha") {
                                                                                                                     echo "selected";
                                                                                                                 } else {
                                                                                                                     echo "";
-                                                                                                                } ?>>Đá xoay - choco - Matcha</option>
+                                                                                                                } ?>>Đá Xay - Choco - Matcha</option>
                                                                         <option value="Thưởng Thức Tại Nhà" <?php if ($row["CAT_NAME"] == "Thưởng Thức Tại Nhà") {
                                                                                                                 echo "selected";
                                                                                                             } else {
                                                                                                                 echo "";
-                                                                                                            } ?>>Thưởng thức tại nhà</option>
+                                                                                                            } ?>>Thưởng Thức Tại Nhà</option>
                                                                     </select>
                                                                     <label for="quantity" class="form-label">Quantity</label>
                                                                     <input type="text" class="form-control" name="quantity" value=<?php echo  $row["QUANTITY"] ?>>

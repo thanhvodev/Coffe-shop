@@ -36,8 +36,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sokoshop - Cửa hàng</title>
     <link rel="shortcut icon" type="image/x-icon" href="../IMAGE/logo.svg" />
-    <link type="text/css" rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,8 +54,7 @@ mysqli_close($conn);
         <div class="logo navbar-brand">
             <img id="logo" src="../IMAGE/logo.svg" alt="Logo"> Sokoshop
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"
-            aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false">
             <i class='fas fa-list'></i>
         </button>
         <div class="collapse navbar-collapse listNav" id="mynavbar">
@@ -67,9 +65,9 @@ mysqli_close($conn);
                 <li class="nav-item"><a class="nav-link" href="../Thanh/login.php">Quản lý</a></li>
             </ul>
             <form class="d-flex cart">
-                <button id = "cart" class="btn btn-light cartButton"><a href="cart.php" class="navbar-brand">Giỏ hàng
-                    <i class="fa fa-cart-plus cart-icon"></i></a>
-                </button>   
+                <button id="cart" class="btn btn-light cartButton"><a href="cart.php" class="navbar-brand">Giỏ hàng
+                        <i class="fa fa-cart-plus cart-icon"></i></a>
+                </button>
             </form>
         </div>
     </div>
@@ -88,10 +86,10 @@ mysqli_close($conn);
                     <h4><i class="material-icons">format_list_bulleted</i> Danh mục sản phẩm</h4>
                     <ul>
                         <li><a href="index.php">Sản phẩm hàng đầu</a></li>
-                        <li><a href="coffee.php">Cà phê</a></li>
-                        <li><a href="tea.php">Trà trái cây - trà sữa</a></li>
+                        <li><a href="coffee.php">Cà Phê</a></li>
+                        <li><a href="tea.php">Trà Trái Cây - Trà Sữa</a></li>
                         <li><a href="ice_blended.php">Đá xay - Choco - Matcha</a></li>
-                        <li><a href="enjoy_at_home.php">Thưởng thức tại nhà</a></li>
+                        <li><a href="enjoy_at_home.php">Thưởng Thức Tại Nhà</a></li>
                     </ul>
                 </div>
 
@@ -142,48 +140,47 @@ mysqli_close($conn);
 
                 <div class="row">
                     <?php
-if (isset($_REQUEST['search'])) {
-    // Gán hàm addslashes để chống sql injection
-    $search = addslashes($_GET['search']);
+                    if (isset($_REQUEST['search'])) {
+                        // Gán hàm addslashes để chống sql injection
+                        $search = addslashes($_GET['search']);
 
-    // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
-    if (empty($search)) {
-        echo '<div class="result-title col-12">Bạn cần nhập dữ liệu vào ô tìm kiếm!</div>';
-    }
-    else {
-        // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
-
-
-        // Kết nối sql
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "sokoshop";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+                        // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                        if (empty($search)) {
+                            echo '<div class="result-title col-12">Bạn cần nhập dữ liệu vào ô tìm kiếm!</div>';
+                        } else {
+                            // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
 
 
-        $sql = "select * from PRODUCT where PRO_NAME like '%$search%' or CAT_NAME like '%$search%'";
-        $result = $conn->query($sql);
+                            // Kết nối sql
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "sokoshop";
 
-        // Thực thi câu truy vấn
-        //$sql = $db->query($query);
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
 
-        // Đếm số đong trả về trong sql.
-        // mysqli_num_rows($sql);
+
+                            $sql = "select * from PRODUCT where PRO_NAME like '%$search%' or CAT_NAME like '%$search%'";
+                            $result = $conn->query($sql);
+
+                            // Thực thi câu truy vấn
+                            //$sql = $db->query($query);
+
+                            // Đếm số đong trả về trong sql.
+                            // mysqli_num_rows($sql);
 
 
-        // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
-        if ($result->num_rows > 0 && $search != "") {
+                            // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
+                            if ($result->num_rows > 0 && $search != "") {
 
-            echo '<div class="result-title col-12">' . $result->num_rows . ' kết quả được tìm thấy.</div>';
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="col-xl-4 col-lg-6 col-md-4 col-lg-offset-1 col-sm-6 col-12">
+                                echo '<div class="result-title col-12">' . $result->num_rows . ' kết quả được tìm thấy.</div>';
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<div class="col-xl-4 col-lg-6 col-md-4 col-lg-offset-1 col-sm-6 col-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <img class="imageCard" src=' . $row["IMAGE_URL"] . ' alt="Card image" style="width:100%">
@@ -191,14 +188,14 @@ if (isset($_REQUEST['search'])) {
                                                     <p class="pro_name">' . $row["PRO_NAME"] . '</p>
                                                     <p class="pro_price">' . $row["PRICE"] / 1000 . '.' . '000' . 'đ</p>
                                                 </div>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=' . '#'.'detail'. $row["PID"] . '>Chi tiết</button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=' . '#' . 'detail' . $row["PID"] . '>Chi tiết</button>
                                             </div>
                                         </div>
                                     </div>';
-            
-            
-                // The Modal Detail
-                echo '<div class="modal fade" id='.'detail'. $row["PID"] . '>
+
+
+                                    // The Modal Detail
+                                    echo '<div class="modal fade" id=' . 'detail' . $row["PID"] . '>
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
 
@@ -220,16 +217,16 @@ if (isset($_REQUEST['search'])) {
                                     </div>
                                     <form>
                                         <div class="quantity d-flex">
-                                            <label for "'.'input-qty-'. $row["PID"] . '" class="label-qty"><i class="material-icons">format_list_numbered</i> Số lượng</label>
-                                            <input id="'.'input-qty-'. $row["PID"] . '" class="input-qty" type="number" value="1" min="1">
+                                            <label for "' . 'input-qty-' . $row["PID"] . '" class="label-qty"><i class="material-icons">format_list_numbered</i> Số lượng</label>
+                                            <input id="' . 'input-qty-' . $row["PID"] . '" class="input-qty" type="number" value="1" min="1">
                                         </div>
                                         <div class="note">
-                                            <label for "'.'input-note-'. $row["PID"] . '" class="label-note"><i class="fa fa-pencil-square-o"></i> Ghi chú thêm cho món này</label><br>
-                                            <input id="'.'input-note-'. $row["PID"] . '" class="input-note" type="text">
+                                            <label for "' . 'input-note-' . $row["PID"] . '" class="label-note"><i class="fa fa-pencil-square-o"></i> Ghi chú thêm cho món này</label><br>
+                                            <input id="' . 'input-note-' . $row["PID"] . '" class="input-note" type="text">
                                         </div>
                                     </form>
 
-                                    <button id="cart" type="button"  data-bs-dismiss="modal" class="addToCart btn btn-cart" onclick="javascript:addOrUpdateOrder(\''. $row["PID"] . '\',\'input-note-'. $row["PID"] . '\',\'input-qty-'. $row["PID"] . '\', ' . $row["PRICE"]. ')">Thêm vào Giỏ hàng</button>
+                                    <button id="cart" type="button"  data-bs-dismiss="modal" class="addToCart btn btn-cart" onclick="javascript:addOrUpdateOrder(\'' . $row["PID"] . '\',\'input-note-' . $row["PID"] . '\',\'input-qty-' . $row["PID"] . '\', ' . $row["PRICE"] . ')">Thêm vào Giỏ hàng</button>
                                 </div>
 
                             </div>
@@ -248,21 +245,15 @@ if (isset($_REQUEST['search'])) {
                     </div>
                 </div>
             </div>';
-            }
+                                }
+                            } else {
+                                echo '<div class="result-title col-12">Không tìm thấy kết quả nào!</div>';
+                            }
+                        }
+                    }
 
 
-
-
-
-        }
-        else {
-            echo '<div class="result-title col-12">Không tìm thấy kết quả nào!</div>';
-        }
-    }
-}
-
-
-?>
+                    ?>
 
                 </div>
 
@@ -279,13 +270,13 @@ if (isset($_REQUEST['search'])) {
     </footer>
 
     <script type="text/javascript">
-        function addOrUpdateOrder(PID, note, quantity, price){
+        function addOrUpdateOrder(PID, note, quantity, price) {
             alert("Bạn đã thêm vào giỏ hàng!");
             var qty = parseInt(document.getElementById(quantity).value);
             var total = qty * price;
             var notetext = document.getElementById(note).value.toString().trim();
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "addOrUpdateOrder.php?ProID=" + PID + "&note=" + notetext + "&total=" + total + "&qty="+ qty, true);
+            xmlhttp.open("GET", "addOrUpdateOrder.php?ProID=" + PID + "&note=" + notetext + "&total=" + total + "&qty=" + qty, true);
             xmlhttp.send();
         }
     </script>

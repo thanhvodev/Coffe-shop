@@ -45,10 +45,10 @@
 //                   <img id="thumbnail-adding-${tid}" src="${prod[0].imgSrc}" class="bg-info img-fluid">
 //                   <input id="link-image-update-${tid}" oninput="upthumb(${tid})" type="text" class="btn news linkimg" value="${prod[0].imgSrc}">
 //                   <select id="select-cate-update-${tid}" class="form-select" aria-label="Default select example">
-//                     <option value="0" ${prod[0].cate === "0" ? "selected" : null}>Cà phê</option>
-//                     <option value="1" ${prod[0].cate === "1" ? "selected" : null}>Trà trái cây - trà sữa</option>
-//                     <option value="2" ${prod[0].cate === "2" ? "selected" : null}>Đá xoay - choco - Matcha</option>
-//                     <option value="3" ${prod[0].cate === "3" ? "selected" : null}>Thưởng thức tại nhà</option>
+//                     <option value="0" ${prod[0].cate === "0" ? "selected" : null}>Cà Phê</option>
+//                     <option value="1" ${prod[0].cate === "1" ? "selected" : null}>Trà Trái Cây - Trà Sữa</option>
+//                     <option value="2" ${prod[0].cate === "2" ? "selected" : null}>Đá Xay - Choco - Matcha</option>
+//                     <option value="3" ${prod[0].cate === "3" ? "selected" : null}>Thưởng Thức Tại Nhà</option>
 //                 </select>
 //               </div>
 
@@ -146,7 +146,7 @@
 //     document.getElementById("tea").className = "";
 //     document.getElementById("choco").className = "";
 //     document.getElementById("athome").className = "";
-//     category = "Cà phê";
+//     category = "Cà Phê";
 //     renderProducts(category);
 // })
 
@@ -176,7 +176,7 @@
 //     document.getElementById("tea").className = "";
 //     document.getElementById("choco").className = "";
 //     document.getElementById("athome").className = "active";
-//     category = "Thưởng thức tại nhà";
+//     category = "Thưởng Thức Tại Nhà";
 //     renderProducts(category);
 // })
 
@@ -195,9 +195,9 @@
 //         result = prod.filter(checkCate);
 //     } else if (category === "Đá Xoay") {
 //         result = prod.filter(function (currentValue) { return currentValue.cate === "2" });
-//     } else if (category === "Thưởng thức tại nhà") {
+//     } else if (category === "Thưởng Thức Tại Nhà") {
 //         result = prod.filter(function (currentValue) { return currentValue.cate === "3" });
-//     } else if (category === "Cà phê") {
+//     } else if (category === "Cà Phê") {
 //         result = prod.filter(function (currentValue) { return currentValue.cate === "0" });
 //     } else if (category === "trà") {
 //         result = prod.filter(function (currentValue) { return currentValue.cate === "1" });
