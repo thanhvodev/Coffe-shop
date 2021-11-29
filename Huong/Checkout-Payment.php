@@ -113,7 +113,7 @@ $customer = mysqli_fetch_assoc($customer);
             </table>
             <br>
             <b>Tổng tiền cần thanh toán:</b>
-            <b style="color: red; font-size:20px;"><?php echo $order["TOTAL"]; ?> VND</b>
+            <b style="color: red; font-size:20px;"><?php echo $order["TOTAL"]/ 1000 . ',' . '000' . ' VNĐ'; ?> </b>
         </div>
     </div>
 
