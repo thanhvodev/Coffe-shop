@@ -1,2 +1,2 @@
 # Coffee-shop
-Online Coffee Shop
+A simple Coffee Shop page with html, css, javascript, php
